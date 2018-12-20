@@ -1,1 +1,1 @@
-Repository for self Java education
+Write code in Java. Self-education
