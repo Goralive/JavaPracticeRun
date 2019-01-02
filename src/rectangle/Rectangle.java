@@ -12,14 +12,15 @@ public class Rectangle {
         int userValue = Integer.valueOf(scanner.nextLine());
 
         for (int i = 0; i < userValue; i++) {
-            for (int j = 0; j < userValue; j++) {
+            System.out.print("* ");
+            for (int j = 0; j < userValue - 2; j++) {
                 if (i == 0 || i == userValue - 1) {
                     System.out.print("* ");
                 } else {
-                    System.out.print(" ");
+                    System.out.print("  ");
                 }
-
             }
+            System.out.print("* ");
             System.out.println();
         }
     }
