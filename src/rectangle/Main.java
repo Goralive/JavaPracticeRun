@@ -1,13 +1,8 @@
 package rectangle;
 
-
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-    DrawRectangle drawRectangle = new DrawRectangle();
-    drawRectangle.drawLogic();
-
+    DrawRectangle.drawLogic(RectangleInput.parseStringToIntHeight(RectangleInput.readLineHeight()),RectangleInput.parseStringToIntLength(RectangleInput.readLineLength()));
     }
 }
 
