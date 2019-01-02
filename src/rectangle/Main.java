@@ -2,7 +2,11 @@ package rectangle;
 
 public class Main {
     public static void main(String[] args) {
-    DrawRectangle.drawLogic(RectangleInput.parseStringToIntHeight(RectangleInput.readLineHeight()),RectangleInput.parseStringToIntLength(RectangleInput.readLineLength()));
+        System.out.println("Enter a value for height: ");
+        int height = RectangleInput.parseStringToInt(RectangleInput.readLine());
+        System.out.println("Enter a value for length: ");
+        int length = RectangleInput.parseStringToInt(RectangleInput.readLine());
+        DrawRectangle.drawLogic(height, length);
     }
 }
 
