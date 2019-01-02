@@ -1,1 +1,1 @@
-Write code in Java. Self-education
+## Self-learning Java in practice
