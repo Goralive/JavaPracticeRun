@@ -37,8 +37,7 @@ public class QuaterTaxes {
     public static double hryvnia(double hryvniaProfit) {
         System.out.println("Your profit in hryvnia: " + hryvniaProfit);
         double temp = hryvniaProfit;
-        double esv = 2460;
-        tax = (double) Math.round(((temp - hryvniaProfit * 0.95) + esv) * 100) / 100;
+        tax = (double) Math.round((hryvniaProfit - (hryvniaProfit * 0.95) + 2460) * 100) / 100;
         return tax;
     }
 }

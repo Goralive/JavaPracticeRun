@@ -9,9 +9,9 @@ public class UserInput {
         return sc.nextLine();
     }
 
-    public static double profit() {
+    public static int profit() {
         System.out.println("Enter your profit: ");
-        double userValue = Double.parseDouble(sc.nextLine());
+        int userValue = Integer.parseInt(sc.nextLine());
         return userValue;
     }
 }
