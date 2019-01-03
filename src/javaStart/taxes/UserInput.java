@@ -3,12 +3,15 @@ package javaStart.taxes;
 import java.util.Scanner;
 
 public class UserInput {
-    Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
-    public String currency (){
+    public static String currency() {
         return sc.nextLine();
     }
-    public void profit () {
 
+    public static double profit() {
+        System.out.println("Enter your profit: ");
+        double userValue = Double.parseDouble(sc.nextLine());
+        return userValue;
     }
 }
