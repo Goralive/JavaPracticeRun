@@ -4,13 +4,15 @@ public class Parser {
 
 
     public static long doubToLong(double number) {
-        long temp = (long) number * QuaterTaxes.CALCULATION_CONSTANT;
+        long temp = (long) (number * 100.00);
         return temp;
     }
 
-    public static double longToDoub(long number) {
+    public static long longToDoub(long number) {
+        return number / QuaterTaxes.CALCULATION_CONSTANT;
+    }
 
-        double temp = (double) (number / QuaterTaxes.CALCULATION_CONSTANT);
-        return temp;
+    public static long excess (long number) {
+        return number % QuaterTaxes.CALCULATION_CONSTANT;
     }
 }

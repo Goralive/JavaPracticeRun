@@ -26,17 +26,17 @@ public class QuaterTaxes {
     }
 
     public static long euro(long euroProfit) {
-        System.out.println("Course value is: " + "31.63\n" + "Your profit in EUR is: " + Parser.longToDoub(euroProfit));
+        System.out.println("Course value is: " + "31.63\n" + "Your profit in EUR is: " + Parser.longToDoub(euroProfit) + "," + Parser.excess(euroProfit));
         return euroProfit * 3163 / CALCULATION_CONSTANT;
     }
 
     public static long dollar(long dollarProfit) {
-        System.out.println("Course value is: " + "27.91\n" + "Your profit in USD is: " + Parser.longToDoub(dollarProfit));
+        System.out.println("Course value is: " + "27.91\n" + "Your profit in USD is: " + Parser.longToDoub(dollarProfit) + "," + Parser.excess(dollarProfit));
         return dollarProfit * 2791 / CALCULATION_CONSTANT;
     }
 
     public static long hryvnia(long hryvniaProfit) {
-        System.out.println("Your profit in hryvnia: " + Parser.longToDoub(hryvniaProfit));
+        System.out.println("Your profit in hryvnia: " + Parser.longToDoub(hryvniaProfit) + "," + Parser.excess(hryvniaProfit));
         tax = (hryvniaProfit - (hryvniaProfit * 95 / CALCULATION_CONSTANT)) + 246000;
         return tax;
     }
