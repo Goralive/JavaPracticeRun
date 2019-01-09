@@ -1,9 +1,9 @@
 package javaStart.variables;
 
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        ReadNumberAndType readNumber = new ReadNumberAndType();
         System.out.println("Greetings,\n\nHere is the list of the home tasks. Type a number to start:\n");
         System.out.println("1. Type a number and you receive each number on the line ");
         System.out.println("2. Triangle square calculation");
@@ -12,7 +12,7 @@ public class Main {
         switch (UserInput.returnInt()) {
             case 1:
                 System.out.println("Please enter 5 digits");
-                ReadNumberAndType.number(UserInput.returnLine());
+                readNumber.number(UserInput.returnLine());
                 break;
             case 2:
                 //TriangleSquare
