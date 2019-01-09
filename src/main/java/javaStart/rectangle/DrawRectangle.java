@@ -1,4 +1,4 @@
-package rectangle;
+package javaStart.rectangle;
 
 public class DrawRectangle {
      public static void drawLogic(int height, int length) {

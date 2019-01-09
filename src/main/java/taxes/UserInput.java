@@ -1,4 +1,4 @@
-package javaStart.taxes;
+package taxes;
 
 import java.util.Scanner;
 
