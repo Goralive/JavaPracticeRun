@@ -2,6 +2,12 @@ package oop.phone;
 
 public class Main {
     public static void main(String[] args) {
-        Phone phone = new Phone("+380634463624");
+
+        System.out.println("Greetings,\nPlease enter your telephone number: ");
+        Phone phone = new Phone();
+        Network network = new Network();
+        network.numberRegistration(phone.operatorRegistration());
+        phone.call(network.verifyPhoneNumberInDatabase(phone.number));
+
     }
 }

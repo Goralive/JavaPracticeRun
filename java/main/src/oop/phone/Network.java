@@ -4,9 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Network {
-    void addNumberToDatabase (Phone number) {
-        List<Phone> telephoneDatabase = new ArrayList<Phone>();
-        telephoneDatabase.add(number);
+    List<String> telephoneDatabase = new ArrayList<String>();
 
+    void numberRegistration(String number) {
+        telephoneDatabase.add(number);
+    }
+
+    boolean verifyPhoneNumberInDatabase(String number) {
+        return telephoneDatabase.contains(number);
     }
 }
+
