@@ -1,38 +1,36 @@
 package oop.phone;
 
-import java.util.Scanner;
 
 public class Phone {
     private String telephoneNumber;
-    Network network = new Network();
+    private Network network;
 
-
-    String userInput() {
-        System.out.println("Please enter your telephone with (+380): ");
-        Scanner sc = new Scanner(System.in);
-        telephoneNumber = sc.nextLine();
-        if (telephoneNumber.length() == 13 && telephoneNumber.contains("+380")) {
-            return telephoneNumber;
-        } else {
-            System.out.println("Your number is incorrect. Number should contain 13 chars and start from +380\nPlease try again\n");
-            userInput();
-        }
-        return userInput();
+    public Phone(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
     }
 
-    void call() {
-        if (network.verifyPhoneNumberInDatabase(telephoneNumber)) {
-            System.out.println("Calling " + this.telephoneNumber);
-        } else {
-            System.out.println("No number in the database");
-        }
+    void call(Phone phone) {
+
     }
 
     void registrationInNetwork() {
-        userInput();
-        System.out.println("Your number will be added to database");
-        network.numberRegistration(telephoneNumber);
 
+    }
+
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    public Network getNetwork() {
+        return network;
+    }
+
+    public void setNetwork(Network network) {
+        this.network = network;
     }
 }
 
