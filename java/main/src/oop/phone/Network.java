@@ -8,6 +8,7 @@ public class Network {
 
     void numberRegistration(String number) {
         telephoneDatabase.add(number);
+        System.out.println("The number " + number + " was added to database");
     }
 
     boolean verifyPhoneNumberInDatabase(String number) {
