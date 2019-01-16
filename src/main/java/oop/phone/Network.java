@@ -6,15 +6,18 @@ import java.util.List;
 
 public class Network {
     private String mobileNetwork;
+    private Phone phone;
 
 
-    List <Phone> phones = new ArrayList();
+    private List <Phone> phones = new ArrayList();
 
-    void numberRegistration(String number) {
+
+
+    void numberRegistration(Phone phone) {
 
     }
 
-    void verifyPhoneNumberInDatabase(Phone number) {
+    void verifyPhoneNumberInDatabase(Phone phone) {
 
     }
 
@@ -24,5 +27,21 @@ public class Network {
 
     public void setMobileNetwork(String mobileNetwork) {
         this.mobileNetwork = mobileNetwork;
+    }
+
+    public Phone getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Phone phone) {
+        this.phone = phone;
+    }
+
+    public List<Phone> getPhones() {
+        return phones;
+    }
+
+    public void setPhones(List<Phone> phones) {
+        this.phones = phones;
     }
 }

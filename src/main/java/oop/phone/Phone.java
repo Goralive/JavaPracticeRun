@@ -1,6 +1,8 @@
 package oop.phone;
 
 
+import java.util.List;
+
 public class Phone {
     private String telephoneNumber;
     private Network network;
@@ -13,8 +15,9 @@ public class Phone {
 
     }
 
-    void registrationInNetwork() {
-
+    void registrationInNetwork(Network network) {
+        List<Phone> tempPhone = network.getPhones();
+        tempPhone.add(this);
     }
 
     public String getTelephoneNumber() {
