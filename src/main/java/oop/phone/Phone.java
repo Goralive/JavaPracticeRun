@@ -11,13 +11,18 @@ public class Phone {
         this.telephoneNumber = telephoneNumber;
     }
 
-    void call(Phone phone) {
-
+    void call (boolean boo) {
+        if(boo){
+            System.out.println("Calling number " + telephoneNumber);
+        } else {
+            System.out.println("Number not in the database");
+        }
     }
 
     void registrationInNetwork(Network network) {
         List<Phone> tempPhone = network.getPhones();
         tempPhone.add(this);
+        this.network = network;
     }
 
     public String getTelephoneNumber() {

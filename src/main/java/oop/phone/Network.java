@@ -9,17 +9,17 @@ public class Network {
     private Phone phone;
 
 
-    private List <Phone> phones = new ArrayList();
+    private List<Phone> phones = new ArrayList();
 
-
-
-    void numberRegistration(Phone phone) {
-
+    boolean verifyPhoneNumberInDatabase(Phone phone) {
+        for (Phone tempPhone : phones) {
+            if (tempPhone.getTelephoneNumber().equals(phone.getTelephoneNumber())) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    void verifyPhoneNumberInDatabase(Phone phone) {
-
-    }
 
     public String getMobileNetwork() {
         return mobileNetwork;
