@@ -11,6 +11,7 @@ public class Phone {
         this.telephoneNumber = telephoneNumber;
     }
 
+
     void call(Phone callingNumber) {
         if (this.network.verifyPhoneNumberInDatabase(callingNumber)) {
             System.out.println("Calling number " + callingNumber.getTelephoneNumber());

@@ -11,6 +11,7 @@ public class Network {
 
     private List<Phone> phones = new ArrayList();
 
+
     boolean verifyPhoneNumberInDatabase(Phone call) {
         for (Phone tempPhone : phones) {
             if (tempPhone.equals(call)) {

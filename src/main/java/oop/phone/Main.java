@@ -11,6 +11,6 @@ public class Main {
         phone.registrationInNetwork(network);
         phone1.registrationInNetwork(network);
         phone.call(phone2);
-
     }
+
 }
