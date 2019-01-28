@@ -6,7 +6,6 @@ import java.util.List;
 
 public class Network {
     private String mobileNetwork;
-    private Phone phone;
 
 
     private List<Phone> phones = new ArrayList();
@@ -27,14 +26,6 @@ public class Network {
 
     public void setMobileNetwork(String mobileNetwork) {
         this.mobileNetwork = mobileNetwork;
-    }
-
-    public Phone getPhone() {
-        return phone;
-    }
-
-    public void setPhone(Phone phone) {
-        this.phone = phone;
     }
 
     public List<Phone> getPhones() {
