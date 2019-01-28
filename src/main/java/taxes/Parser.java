@@ -1,4 +1,4 @@
-package javaStart.taxes;
+package taxes;
 
 public class Parser {
 

@@ -1,4 +1,4 @@
-package javaStart.taxes;
+package taxes;
 
 // taxes. Get user input float for course value, * 0.95 (5%) + 820 ghr (ESV) * 3 months (quarter)
 public class QuaterTaxes {
