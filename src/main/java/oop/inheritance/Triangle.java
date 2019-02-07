@@ -10,7 +10,7 @@ public class Triangle extends Shape {
 
     @Override
     double getArea() {
-        double polP =(a + b + c) / 2;
+        double polP = (a + b + c) / 2;
         return Math.sqrt(polP*(polP-a)*(polP-b)*(polP-c));
     }
 }
