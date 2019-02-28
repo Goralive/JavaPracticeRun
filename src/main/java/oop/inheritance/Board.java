@@ -8,11 +8,11 @@ import java.util.Map;
 
 public class Board {
 
-    private ArrayList board = new ArrayList<Shape>(4);
+    private List <Shape> board = new ArrayList<>(4);
 
 
     public void addFigureToBoard (Shape shapeOfFigure) {
-        if(!board.isEmpty()){
+        if(board.size() < 4){
             board.add(shapeOfFigure);
         }
     }
@@ -23,8 +23,8 @@ public class Board {
 
     public void printInformationFigureOnTheBoard () {
         System.out.println("On the board you can see: ");
-        for (int i = 0; i < board.size() ; i++) {
-            System.out.println(board.get(i));
+        for (Shape temp : board) {
+            System.out.println(temp.toString());
         }
     }
 
