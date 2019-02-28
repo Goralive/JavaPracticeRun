@@ -22,6 +22,7 @@ src/test/java/com/selenium/UbisoftCreateAccountForm.java
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries
+.build
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
