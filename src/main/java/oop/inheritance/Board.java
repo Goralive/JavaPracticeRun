@@ -12,13 +12,17 @@ public class Board {
 
 
     public void addFigureToBoard (Shape shapeOfFigure) {
-        if(board.size() < 4){
+        if  (board.size() < 4) {
             board.add(shapeOfFigure);
+        } else {
+            System.out.println("On the board there is: " + board.size() + " figures\n You can't add another one");
         }
     }
 
     public void deleteFigureFromBoard (int numberOfDeleteFigure) {
-
+        if (0 < board.size() && board.size() < 4) {
+            board.remove(numberOfDeleteFigure);
+        }
     }
 
     public void printInformationFigureOnTheBoard () {
