@@ -191,5 +191,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Gradle
+.gradle
+build
+
 # End of https://www.gitignore.io/api/java,macos,windows,intellij,java-web,code-java,intellij+all
 =======
