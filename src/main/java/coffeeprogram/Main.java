@@ -8,7 +8,7 @@ package coffeeprogram;
 
 public class Main {
     public static void main(String[] args) {
-        CoffeTime coffeTime = new CoffeTime();
+        CoffeeTime coffeTime = new CoffeeTime();
         coffeTime.print();
     }
 }
