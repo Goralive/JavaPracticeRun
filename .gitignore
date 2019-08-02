@@ -36,6 +36,10 @@ src/test/java/com/selenium/UbisoftCreateAccountForm.java
 # Gradle:
 .idea/**/gradle.xml
 .idea/**/libraries
+gradle
+gradlew
+gradlew.bat
+.gradle
 
 # CMake
 cmake-build-debug/
