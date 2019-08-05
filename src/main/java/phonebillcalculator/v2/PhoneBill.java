@@ -1,33 +1,46 @@
 package phonebillcalculator.v2;
 
-import java.util.Scanner;
 
 public class PhoneBill {
     private int id;
-    private double allottedMinutes;
-    private double usedMinutes;
+    private int allottedMinutes;
+    private int usedMinutes;
     private double charge = 0.25;
     private double tax = 0.15;
     private double baseCost;
 
     public PhoneBill(){
-
+        this.id = 0;
+        this.allottedMinutes = 200;
+        this.usedMinutes = 200;
+        this.baseCost = 250;
     }
 
     public PhoneBill (int id) {
         this.id = id;
+        this.allottedMinutes = 200;
+        this.usedMinutes = 200;
+        this.baseCost = 250;
     }
 
-    public PhoneBill(int id, double allottedMinutes, double usedMinutes, double baseCost) {
+    public PhoneBill(int id, int allottedMinutes, int usedMinutes, double baseCost) {
         this.id = id;
         this.allottedMinutes = allottedMinutes;
         this.usedMinutes = usedMinutes;
         this.baseCost = baseCost;
     }
+    //allottedMinutes - usedMinutes if more then 0 then calculate take a tax
+    public double calculateOverage () {
+        return allottedMinutes > usedMinutes ? 0 : (usedMinutes - allottedMinutes) * charge;
+    }
 
-    Scanner sc = new Scanner(System.in);
+    public double calculateTax () {
+        return (baseCost + calculateOverage()) * tax;
+    }
 
-    public void
+    public double calculateTotal () {
+        return calculateTax() + baseCost + calculateOverage();
+    }
 
     public void printItemizedBill(){
         System.out.println("ID: " + id);
@@ -37,7 +50,6 @@ public class PhoneBill {
         System.out.println("Tax: $"
                 + String.format("%.2f", calculateTax()));
         System.out.println("Total: $"
-                + String.format("%.2f", calculateTotal()));
+                + String.format("%.2f\n", calculateTotal()));
     }
-
 }
