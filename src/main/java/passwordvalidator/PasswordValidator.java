@@ -1,10 +1,18 @@
 package passwordvalidator;
 
 public class PasswordValidator {
-    private String username = "Jackson_ford";
-    private String password = "Hell0World";
 
-    public boolean checkUsername (User user) {
-        return user.getUsername().equals(username.toLowerCase());
+
+    public boolean checkUsername(String username, User user) {
+        return username.equals(user.getUsername());
     }
+
+    public boolean checkPasswordLength(User user) throws Exception {
+    return true;
+    }
+
+    public boolean checks(User user1, User user2) {
+        return checkUsername(user1.getUsername(),user2);
+    }
+
 }

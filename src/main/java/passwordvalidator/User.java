@@ -1,5 +1,7 @@
 package passwordvalidator;
 
+import java.util.Scanner;
+
 public class User {
     private String username;
     private String password;
@@ -20,8 +22,21 @@ public class User {
         this.password = password;
     }
 
+    public User() {
+    }
+
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    Scanner sc = new Scanner(System.in);
+
+    public User createUser() {
+        System.out.println("Please type a new username: ");
+        String username = sc.nextLine();
+        System.out.println("Please type a new password: ");
+        String userPass = sc.nextLine();
+        return new User(username,userPass);
     }
 }
