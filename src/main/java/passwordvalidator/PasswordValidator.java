@@ -14,7 +14,11 @@ public class PasswordValidator {
         if (validPassLength <= password.length()) {
             if (isUpperCase(password)) {
                 if (isLowerCase(password)) {
-                    return true;
+                    if (isSpecialCharacter(password)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
                 } else {
                     System.out.println("Your password should contain an lowercase letters");
                     return false;
@@ -30,6 +34,7 @@ public class PasswordValidator {
 
         // return checkUsername(createdNewUser.getUsername(), existingUser);
     }
+
 
     public boolean isUpperCase(String password) {
         boolean isUppercase = false;
@@ -61,10 +66,18 @@ public class PasswordValidator {
         return isLowerCase;
     }
 
+    public boolean isSpecialCharacter(String password) {
+        String temp = password.replaceAll("[A-Za-z0-9]", "");
+        if (0 < temp.length()) {
+            return true;
+        } else {
+            System.out.println("Password should contain a special characters");
+            return false;
+        }
+    }
 }
 
 
-//        * - contain an uppercase letter
 //        * - contain a special character
 //        * - not contain the username
 //        * - not the same as the old password
