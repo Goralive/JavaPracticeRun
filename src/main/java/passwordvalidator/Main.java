@@ -12,7 +12,6 @@ public class Main {
     public static void main(String[] args) {
         PasswordValidator validator = new PasswordValidator();
         User user = new User("Reno","Jackson#123");
-        //User createNewUser = user.createUser();
         boolean isValid;
         do {
            isValid = validator.checks(new User().createUser(),user);

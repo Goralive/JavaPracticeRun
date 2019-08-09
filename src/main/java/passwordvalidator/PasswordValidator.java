@@ -3,11 +3,6 @@ package passwordvalidator;
 public class PasswordValidator {
     private int validPassLength = 8;
 
-
-    public boolean checkUsername(String newUserName, User existingUser) {
-        return newUserName.equals(existingUser.getUsername());
-    }
-
     public boolean checks(User createdNewUser, User existingUser) {
         String password = createdNewUser.getPassword();
 
@@ -15,9 +10,9 @@ public class PasswordValidator {
             if (isUpperCase(password)) {
                 if (isLowerCase(password)) {
                     if (isSpecialCharacter(password)) {
-                        return true;
-                    } else {
-                        return false;
+                        if (checkPassword(createdNewUser, existingUser)) {
+
+                        }
                     }
                 } else {
                     System.out.println("Your password should contain an lowercase letters");
@@ -31,8 +26,23 @@ public class PasswordValidator {
             System.out.println("Your password less then 8 characters");
             return false;
         }
+        return checkUsername(createdNewUser, existingUser);
+    }
 
-        // return checkUsername(createdNewUser.getUsername(), existingUser);
+    public boolean checkUsername(User newUser, User existingUser) {
+        if (newUser.getUsername().equals(existingUser.getUsername())) {
+            System.out.println("Please provide a new username");
+            return false;
+        }
+        return true;
+    }
+
+    public boolean checkPassword(User newUser, User existingUser) {
+        if (newUser.getPassword().equals(existingUser.getPassword())) {
+            System.out.println("Please provide a new password");
+            return false;
+        }
+        return true;
     }
 
 
@@ -44,8 +54,6 @@ public class PasswordValidator {
             if (chars[i] == upperCaseChars[i]) {
                 isUppercase = true;
                 break;
-            } else {
-                isUppercase = false;
             }
         }
         return isUppercase;
@@ -59,8 +67,6 @@ public class PasswordValidator {
             if (chars[i] == lowerCaseChars[i]) {
                 isLowerCase = true;
                 break;
-            } else {
-                isLowerCase = false;
             }
         }
         return isLowerCase;
@@ -78,6 +84,4 @@ public class PasswordValidator {
 }
 
 
-//        * - contain a special character
-//        * - not contain the username
-//        * - not the same as the old password
+
