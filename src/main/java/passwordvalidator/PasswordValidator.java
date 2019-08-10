@@ -8,7 +8,7 @@ public class PasswordValidator {
 
         if (passwordLength(createdNewUser) && isUpperCase(password) &&
                 isLowerCase(password) && isSpecialCharacter(password) &&
-                checkPassword(createdNewUser, existingUser) && checkUsername(createdNewUser, existingUser)) {
+                checkPassword(createdNewUser, existingUser) && isSameUsername(createdNewUser, existingUser)) {
             return true;
         }
         return false;
@@ -22,7 +22,7 @@ public class PasswordValidator {
         return false;
     }
 
-    public boolean checkUsername(User newUser, User existingUser) {
+    public boolean isSameUsername(User newUser, User existingUser) {
         if (newUser.getUsername().equals(existingUser.getUsername())) {
             System.out.println("Please provide a new username");
             return false;
