@@ -15,7 +15,7 @@ public class PasswordValidator {
     }
 
     public boolean passwordLength(User user) {
-        if (validPassLength <= user.getPassword().length()) {
+        if (user.getPassword().matches("\\w{8,}\\S")) {
             return true;
         }
         System.out.println("Your password is less then 8 characters");
@@ -40,38 +40,27 @@ public class PasswordValidator {
 
 
     public boolean isUpperCase(String password) {
-        //  String temp = password.replaceAll("[^A-Za-z0-9]", "");
-        char[] chars = password.toCharArray();
-        char[] upperCaseChars = password.toUpperCase().toCharArray();
-        for (int i = 0; i < chars.length; i++) {
-            if (chars[i] == upperCaseChars[i]) {
-                return true;
-            }
+        if (password.matches("(?s).*[A-Z].*")) {
+            return true;
         }
         System.out.println("Your password should contain an uppercase letters");
         return false;
     }
 
     public boolean isLowerCase(String password) {
-        char[] chars = password.toCharArray();
-        char[] lowerCaseChars = password.toLowerCase().toCharArray();
-        for (int i = 0; i < chars.length; i++) {
-            if (chars[i] == lowerCaseChars[i]) {
-                return true;
-            }
+        if (password.matches("(?s).*[a-z].*")) {
+            return true;
         }
         System.out.println("Your password should contain an lowercase letters");
         return false;
     }
 
     public boolean isSpecialCharacter(String password) {
-        String temp = password.replaceAll("[A-Za-z0-9]", "");
-        if (0 < temp.length()) {
+        if (password.matches("(?s).*[@$!%*#?&].*")) {
             return true;
-        } else {
-            System.out.println("Password should contain a special characters");
-            return false;
         }
+        System.out.println("Your password should contain a special characters");
+        return false;
     }
 }
 
