@@ -2,8 +2,8 @@ package rectangle;
 
 public class Rectangle {
 
-    private double length;
-    private double width;
+    protected double length;
+    protected double width;
 
     public Rectangle() {
         length = 0;
@@ -32,11 +32,15 @@ public class Rectangle {
     }
 
 
-    public double calculatePerimetr() {
+    public double calculatePerimeter() {
         return (2 * length) + (2 * width);
     }
 
     public double calculateArea() {
         return length * width;
+    }
+
+    public void print () {
+        System.out.println("I'm rectangle");
     }
 }
