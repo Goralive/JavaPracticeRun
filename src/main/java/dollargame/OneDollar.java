@@ -9,31 +9,53 @@ public class OneDollar {
     private double dimes = 0.1;
     private double quarters = 0.25;
     private double userMoney;
-    private double tempUserInput;
+
+    Scanner sc = new Scanner(System.in);
 
 
     public double calculation() {
         System.out.println("Enter enough change to equal exactly $1 ");
-        System.out.println("How many pennies do you need? ");
-        tempUserInput = pennies * userInput();
-        userMoney += tempUserInput;
-        System.out.println("How");
+        userMoney += penniesAmount();
+        userMoney += nickelsAmount();
+        userMoney += dimesAmount();
+        userMoney += quartersAmount();
+        sc.close();
+        return userMoney;
+    }
+
+    private double quartersAmount() {
+        System.out.println("How many quaters do you need? ");
+        return quarters * userInput();
+    }
+
+    private double dimesAmount() {
+        System.out.println("How many dimes do you need? ");
+        return dimes * userInput();
+    }
+
+    private double nickelsAmount() {
+        System.out.println("How many nickels do you need? ");
+        return nickels * userInput();
     }
 
     public double userInput() {
-        Scanner sc = new Scanner(System.in);
         return sc.nextInt();
     }
 
-    public void game () {
-        if (calculation() == dollar) {
-            System.out.println("You won the game! You get a " + userMoney);
+    public void game() {
+        calculation();
+        if (userMoney == dollar) {
+            System.out.println("You won the game! You get a $" + userMoney);
+        } else if (userMoney < dollar) {
+            System.out.println("Sorry you went under a dollar! Your result under for a $" + (dollar - userMoney));
+        } else if (userMoney > dollar) {
+            System.out.println("Sorry you went over a dollar! Your above for $" + (userMoney - dollar));
         }
-        else if (calculation() < dollar) {
-            System.out.println("Sorry you went under a dollar! Your result under for a " + (dollar - userMoney));
-        }
-        else if (calculation() > dollar) {
-            System.out.println("Sorry you went over a dollar! Your result is " + (userMoney - dollar));
-        }
+    }
+
+    public double penniesAmount() {
+        System.out.println("How many pennies do you need? ");
+        return pennies * userInput();
+
     }
 }
