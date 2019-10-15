@@ -1,6 +1,5 @@
 package codingbat;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,7 +10,7 @@ public class MakeTagsTest {
 
     @Test
     public void makeTagsTest() {
-        Assert.assertEquals(codingBat.makeTags("i", "Yay"), "<i>Yay</i>");
+        assertEquals(codingBat.makeTags("i", "Yay"), "<i>Yay</i>");
     }
 
     @Test
@@ -50,5 +49,18 @@ public class MakeTagsTest {
     public void left2() {
         assertEquals("lloHe", codingBat.left2("Hello"));
         assertEquals("Hi",codingBat.left2("Hi"));
+    }
+
+    @Test
+    public void right2(){
+        assertEquals("loHel",codingBat.right2("Hello"));
+        assertEquals("Hi",codingBat.left2("Hi"));
+
+    }
+
+    @Test
+    public void theEnd(){
+        assertEquals("H", codingBat.theEnd("Hello",true));
+        assertEquals("o",codingBat.theEnd("Hello",false));
     }
 }

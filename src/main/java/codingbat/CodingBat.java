@@ -32,4 +32,17 @@ public class CodingBat {
     public String left2(String str) {
         return str.substring(2).concat(str.substring(0,2));
     }
+
+    public String right2(String str) {
+        int beginIndex = str.length() - 2;
+        int lastIndex = str.length();
+        return str.substring(beginIndex,lastIndex).concat(str.substring(0,beginIndex));
+    }
+
+    public String theEnd(String str, boolean front) {
+        if (front) {
+            return String.valueOf(str.charAt(0));
+        }
+        return String.valueOf(str.charAt(str.length()-1));
+    }
 }
