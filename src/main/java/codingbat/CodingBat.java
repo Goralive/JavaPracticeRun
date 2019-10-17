@@ -45,4 +45,11 @@ public class CodingBat {
         }
         return String.valueOf(str.charAt(str.length()-1));
     }
+
+    public String withoutEnd2(String str) {
+        String temp;
+         temp = str.substring(str.length()-1);
+         temp = str.substring(1);
+        return temp;
+    }
 }

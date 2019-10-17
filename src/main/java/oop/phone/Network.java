@@ -5,34 +5,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Network {
-    private String mobileNetwork;
+    private List<String> phoneNumbers = new ArrayList();
+    InputNumber input = new InputNumber();
+    private boolean isTelephoneNumberInDatabase = false;
 
 
-    private List<Phone> phones = new ArrayList();
 
-
-    boolean verifyPhoneNumberInDatabase(Phone call) {
-        for (Phone tempPhone : phones) {
-            if (tempPhone.equals(call)) {
-                return true;
+    public boolean isPhoneNumberInDatabase(String telephoneNumber) {
+        for (String tempPhone : phoneNumbers) {
+            if (tempPhone.equals(telephoneNumber)) {
+                 isTelephoneNumberInDatabase = true;
             }
         }
-        return false;
-    }
-
-    public String getMobileNetwork() {
-        return mobileNetwork;
-    }
-
-    public void setMobileNetwork(String mobileNetwork) {
-        this.mobileNetwork = mobileNetwork;
-    }
-
-    public List<Phone> getPhones() {
-        return phones;
-    }
-
-    public void setPhones(List<Phone> phones) {
-        this.phones = phones;
+        System.out.println("The number isn't in the database\nDo you want to add it? Yes/No");
+        if (input.userChoice()){
+            System.out.println("The number will be added to the network");
+            phoneNumbers.add(telephoneNumber);
+            isTelephoneNumberInDatabase = true;
+        } else {
+            System.out.println("You select No. The number isn't in the database and won't be added");
+             isTelephoneNumberInDatabase = false;
+        }
+        return isTelephoneNumberInDatabase;
     }
 }
