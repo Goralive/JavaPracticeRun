@@ -19,8 +19,8 @@ public class Phone {
         network.addTelephoneToPhoneList(Phone.this);
     }
 
-    public void call(boolean isNumberFound) {
-        if(isNumberFound) {
+    public void call(Phone phoneNumber, Network network) {
+        if(network.isNumberInNetwork(phoneNumber)) {
             System.out.println("Calling number " +  getTelephoneNumber());
         } else {
             System.out.println("No number in database " + getTelephoneNumber());

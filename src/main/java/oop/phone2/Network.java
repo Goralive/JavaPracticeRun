@@ -33,8 +33,8 @@ public class Network {
         phoneList.add(phoneNumber);
     }
 
-    public boolean isNumberInNetwork (Phone phoneNumber, Network network) {
-        for (Phone phone : network.getPhoneList()) {
+    public boolean isNumberInNetwork (Phone phoneNumber) {
+        for (Phone phone : phoneList) {
             if (phone.getTelephoneNumber() == phoneNumber.getTelephoneNumber()) {
                 return true;
             }
