@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class MakeTagsTest {
+public class CodingBatTests {
 
     CodingBat codingBat = new CodingBat();
 
@@ -62,5 +62,11 @@ public class MakeTagsTest {
     public void theEnd(){
         assertEquals("H", codingBat.theEnd("Hello",true));
         assertEquals("o",codingBat.theEnd("Hello",false));
+    }
+
+    @Test
+    public void withoutEnd2() {
+        assertEquals("ell",codingBat.withoutEnd2("Hello"));
+
     }
 }
