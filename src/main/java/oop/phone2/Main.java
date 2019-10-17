@@ -7,7 +7,8 @@ public class Main {
         Network kievstar = new Network("Kievstar", randomTelephone);
 
         vladimirPhone.registrationInTheNetwork(kievstar);
-        vladimirPhone.call(randomTelephone,kievstar);
+        boolean callingNumber = kievstar.isNumberInNetwork(vladimirPhone,kievstar);
+        vladimirPhone.call(callingNumber);
 
     }
 }

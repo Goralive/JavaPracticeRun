@@ -19,17 +19,26 @@ public class Network {
         this.phoneList = phoneList;
     }
 
-    public Network(String name, Phone phone){
+    public Network(String name, Phone phone) {
         this.networkName = name;
         phoneList.add(phone);
-        }
+    }
+
+    public List<Phone> getPhoneList() {
+        return phoneList;
+    }
 
 
     public void addTelephoneToPhoneList(Phone phoneNumber) {
         phoneList.add(phoneNumber);
     }
 
-    public List<Phone> getPhoneList() {
-        return phoneList;
+    public boolean isNumberInNetwork (Phone phoneNumber, Network network) {
+        for (Phone phone : network.getPhoneList()) {
+            if (phone.getTelephoneNumber() == phoneNumber.getTelephoneNumber()) {
+                return true;
+            }
+        }
+        return false;
     }
 }
