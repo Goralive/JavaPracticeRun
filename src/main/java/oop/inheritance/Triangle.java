@@ -3,25 +3,32 @@ package oop.inheritance;
 public class Triangle extends Shape {
     private final String name = "Triangle";
 
-   private Point a = new Point(1,1);
-   private Point b = new Point(2,2);
-   private Point c = new Point(2,2);
+    private Point a;
+    private Point b;
+    private Point c;
 
-    public Triangle() {
-        super();
+    private double sideA;
+    private double sideB;
+    private double sideC;
 
+    public Triangle(Point a, Point b, Point c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+
+    @Override
+    public double getPerimeter() {
+        sideA = a.getDistance(a, b);
+        sideB = b.getDistance(b, c);
+        sideC = c.getDistance(a, c);
+        return sideA + sideB + sideC;
     }
 
     @Override
-    double getPerimeter() {
-        // a + b + c
-        return 0 ;
-    }
-
-    @Override
-    double getArea() {
-//        double polP = (a + b + c) / 2;
-//        Math.sqrt(polP*(polP-a)*(polP-b)*(polP-c));
-        return 0;
+    public double getArea() {
+        double polP = getPerimeter() / 2;
+        return Math.sqrt(polP * (polP - sideA) * (polP - sideB) * (polP - sideC));
     }
 }

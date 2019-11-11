@@ -32,7 +32,7 @@ public class Board {
         }
     }
 
-    public void overalSqueareOfTheFiguresOnTheBoard () {
-
+    public void overalSqueareOfTheFiguresOnTheBoard (Shape shape) {
+        System.out.println(shape.getPerimeter());
     }
 }
