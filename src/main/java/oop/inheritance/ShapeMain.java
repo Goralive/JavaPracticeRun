@@ -6,8 +6,13 @@ public class ShapeMain {
 
       //  UserInput board = new UserInput();
     //    board.addFigureOnBoard();
-        Triangle triangle = new Triangle(new Point(1,3),new Point(2,-5), new Point(-8,4));
-        System.out.println(triangle.getPerimeter());
-        System.out.println(triangle.getArea());
+        Shape triangle = new Triangle(new Point(1,3),new Point(2,-5), new Point(-8,4));
+        Shape circle = new Circle(5);
+        System.out.println("Triangle perimeter " + triangle.getPerimeter());
+        System.out.println("Triangle area " + triangle.getArea());
+
+        System.out.println("Circle perimeter " + circle.getPerimeter());
+        System.out.println("Circle area " + circle.getArea());
+
     }
 }

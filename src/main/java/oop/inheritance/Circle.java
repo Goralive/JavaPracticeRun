@@ -1,30 +1,19 @@
 package oop.inheritance;
 
 public class Circle extends Shape {
-    private Point centrePoint;
-    private Point pointOnCircle;
+    private double radius;
 
-    public Circle(Point centrePoint, Point pointOnCircle) {
-        this.centrePoint = centrePoint;
-        this.pointOnCircle = pointOnCircle;
+    public Circle(double radius) {
+        this.radius = radius;
     }
 
-    double calculateRadius () {
-        return 0;
-    }
-
-    /*double calculateDiameter() {
-        return (centrePoint - pointOnCircle);
-    }
-*/
     @Override
     public double getPerimeter() {
-        System.out.println("shape of the circle");
-        return 0;
+        return Math.pow(Math.PI,2) * radius;
     }
 
     @Override
     public double getArea() {
-        return 0;
+        return Math.PI * Math.pow(radius,2);
     }
 }

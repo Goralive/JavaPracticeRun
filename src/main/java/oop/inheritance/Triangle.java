@@ -17,7 +17,6 @@ public class Triangle extends Shape {
         this.c = c;
     }
 
-
     @Override
     public double getPerimeter() {
         sideA = a.getDistance(a, b);
