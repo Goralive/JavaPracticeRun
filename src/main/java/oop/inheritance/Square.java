@@ -17,7 +17,7 @@ public class Square extends Shape {
         this.b = b;
         this.c = c;
         this.d = d;
-        sideA = a.getDistance(a,c);
+        sideA = a.getDistance(a, c);
     }
 
     public Square(double sideA) {

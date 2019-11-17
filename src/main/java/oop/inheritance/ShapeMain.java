@@ -5,7 +5,7 @@ public class ShapeMain {
 
 
         //  UserInput board = new UserInput();
-        //    board.addFigureOnBoard();
+
         Shape triangle = new Triangle(new Point(1, 3), new Point(2, -5), new Point(-8, 4));
         Shape circle = new Circle(5);
         Shape square = new Square(new Point(1, 1), new Point(1, 3), new Point(3, 1), new Point(3, 3));
@@ -23,5 +23,21 @@ public class ShapeMain {
         System.out.println("Rectangle area " + rectangle.getArea());
         System.out.println("Rectangle perimeter " + rectangle.getPerimeter());
 
+        System.out.println("\n");
+        Board doska = new Board();
+        doska.addFigureToBoard(circle);
+        doska.printInformationFigureOnTheBoard();
+        doska.overalSqueareOfTheFiguresOnTheBoard();
+
+        doska.deleteFigureFromBoard(0);
+        doska.printInformationFigureOnTheBoard();
+
+        doska.addFigureToBoard(square);
+        doska.addFigureToBoard(square);
+        doska.addFigureToBoard(square);
+        doska.addFigureToBoard(square);
+        doska.addFigureToBoard(square);
+        doska.printInformationFigureOnTheBoard();
+        doska.overalSqueareOfTheFiguresOnTheBoard();
     }
 }

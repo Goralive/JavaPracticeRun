@@ -1,6 +1,8 @@
 package oop.inheritance;
 
 public class Rectangle extends Shape {
+    private final String name = "Rectangle";
+
     private Point a;
     private Point b;
     private Point c;
@@ -23,7 +25,7 @@ public class Rectangle extends Shape {
         sideB = a.getDistance(a, d);
     }
 
-    private final String name = "Rectangle";
+
 
     @Override
     public double getPerimeter() {
@@ -34,5 +36,10 @@ public class Rectangle extends Shape {
     @Override
     public double getArea() {
         return sideA * sideB;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }

@@ -30,4 +30,9 @@ public class Triangle extends Shape {
         double polP = getPerimeter() / 2;
         return Math.sqrt(polP * (polP - sideA) * (polP - sideB) * (polP - sideC));
     }
+
+    @Override
+    public String getName() {
+        return name;
+    }
 }

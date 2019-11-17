@@ -1,6 +1,7 @@
 package oop.inheritance;
 
 public class Circle extends Shape {
+    private String name = "Circle";
     private Point a;
     private Point b;
     private double radius;
@@ -9,7 +10,7 @@ public class Circle extends Shape {
     public Circle(Point a, Point b) {
         this.a = a;
         this.b = b;
-        radius = a.getDistance(a,b);
+        radius = a.getDistance(a, b);
     }
 
 
@@ -25,5 +26,10 @@ public class Circle extends Shape {
     @Override
     public double getArea() {
         return Math.PI * Math.pow(radius, 2);
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }

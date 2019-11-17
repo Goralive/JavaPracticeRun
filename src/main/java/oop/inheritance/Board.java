@@ -8,31 +8,41 @@ import java.util.List;
 
 public class Board {
 
-    private List <Shape> board = new ArrayList<>(4);
+    private List<Shape> board = new ArrayList<>(4);
+    private double overalArea;
 
-
-    public void addFigureToBoard (Shape shapeOfFigure) {
-        if  (board.size() < 4) {
+    public void addFigureToBoard(Shape shapeOfFigure) {
+        if (board.size() < 4) {
             board.add(shapeOfFigure);
+            System.out.println("On the board there is: " + board.size() + " figures\nFeel free to add another one");
         } else {
-            System.out.println("On the board there is: " + board.size() + " figures\n You can't add another one");
+            System.out.println("On the board there is: " + board.size() + " figures\nYou can't add another one");
         }
     }
 
-    public void deleteFigureFromBoard (int numberOfDeleteFigure) {
+    public void deleteFigureFromBoard(int numberOfDeleteFigure) {
         if (0 < board.size() && board.size() < 4) {
-            board.remove(numberOfDeleteFigure);
+            overalArea -= board.get(numberOfDeleteFigure).getArea();
+            System.out.println("Was deleted " + board.remove(numberOfDeleteFigure).getName());
+
         }
     }
 
-    public void printInformationFigureOnTheBoard () {
+    public void printInformationFigureOnTheBoard() {
         System.out.println("On the board you can see: ");
+        if (board.size() == 0) {
+            System.out.println("Nothing?");
+        }
         for (Shape temp : board) {
-            System.out.println(temp.toString());
+            System.out.println("- " + temp.getName());
         }
     }
 
-    public void overalSqueareOfTheFiguresOnTheBoard (Shape shape) {
-        System.out.println(shape.getPerimeter());
+    public void overalSqueareOfTheFiguresOnTheBoard() {
+        for (int i = 0; i < board.size(); i++) {
+            double temp = board.get(i).getArea();
+            overalArea += temp;
+        }
+        System.out.println("Overall area of the figures that are present on the board is: " + overalArea);
     }
 }
