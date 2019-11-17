@@ -1,10 +1,11 @@
 package oop.inheritance;
 
-public class Diamond extends Shape {
-    private final String name = "Diamond";
+public class Rectangle extends Shape {
+    private final String name = "Rectangle";
 
     @Override
-    public double getPerimeter() {
+    public double getPerimeter()
+    {
         return 0;
     }
 
