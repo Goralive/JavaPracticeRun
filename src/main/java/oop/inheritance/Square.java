@@ -20,6 +20,10 @@ public class Square extends Shape {
         sideA = a.getDistance(a,c);
     }
 
+    public Square(double sideA) {
+        this.sideA = sideA;
+    }
+
     @Override
     public double getPerimeter() {
         return 4 * sideA;

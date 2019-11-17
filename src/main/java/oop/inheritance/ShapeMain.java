@@ -9,6 +9,7 @@ public class ShapeMain {
         Shape triangle = new Triangle(new Point(1, 3), new Point(2, -5), new Point(-8, 4));
         Shape circle = new Circle(5);
         Shape square = new Square(new Point(1, 1), new Point(1, 3), new Point(3, 1), new Point(3, 3));
+        Shape rectangle = new Rectangle(new Point(1, 1), new Point(1, 3), new Point(6, 3), new Point(6, 1));
 
         System.out.println("Triangle perimeter " + triangle.getPerimeter());
         System.out.println("Triangle area " + triangle.getArea());
@@ -18,6 +19,9 @@ public class ShapeMain {
 
         System.out.println("Square area " + square.getArea());
         System.out.println("Square perimeter " + square.getPerimeter());
+
+        System.out.println("Rectangle area " + rectangle.getArea());
+        System.out.println("Rectangle perimeter " + rectangle.getPerimeter());
 
     }
 }
