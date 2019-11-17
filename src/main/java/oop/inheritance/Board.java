@@ -9,11 +9,12 @@ import java.util.List;
 public class Board {
 
     private List<Shape> board = new ArrayList<>(4);
-    private double overalArea;
+    private double overallArea;
 
     public void addFigureToBoard(Shape shapeOfFigure) {
         if (board.size() < 4) {
             board.add(shapeOfFigure);
+            overallArea += shapeOfFigure.getArea();
             System.out.println("On the board there is: " + board.size() + " figures\nFeel free to add another one");
         } else {
             System.out.println("On the board there is: " + board.size() + " figures\nYou can't add another one");
@@ -22,7 +23,7 @@ public class Board {
 
     public void deleteFigureFromBoard(int numberOfDeleteFigure) {
         if (0 < board.size() && board.size() < 4) {
-            overalArea -= board.get(numberOfDeleteFigure).getArea();
+            overallArea -= board.get(numberOfDeleteFigure).getArea();
             System.out.println("Was deleted " + board.remove(numberOfDeleteFigure).getName());
 
         }
@@ -39,10 +40,6 @@ public class Board {
     }
 
     public void overalSqueareOfTheFiguresOnTheBoard() {
-        for (int i = 0; i < board.size(); i++) {
-            double temp = board.get(i).getArea();
-            overalArea += temp;
-        }
-        System.out.println("Overall area of the figures that are present on the board is: " + overalArea);
+        System.out.println("Overall area of the figures that are present on the board is: " + overallArea);
     }
 }

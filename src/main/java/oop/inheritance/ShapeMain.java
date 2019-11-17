@@ -28,6 +28,7 @@ public class ShapeMain {
         doska.addFigureToBoard(circle);
         doska.printInformationFigureOnTheBoard();
         doska.overalSqueareOfTheFiguresOnTheBoard();
+        doska.overalSqueareOfTheFiguresOnTheBoard();
 
         doska.deleteFigureFromBoard(0);
         doska.printInformationFigureOnTheBoard();
