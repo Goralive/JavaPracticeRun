@@ -10,6 +10,7 @@ public class Board {
 
     private List<Shape> board = new ArrayList<>(4);
     private double overallArea;
+    private int index = 0;
 
     public void addFigureToBoard(Shape shapeOfFigure) {
         if (board.size() < 4) {
@@ -22,21 +23,21 @@ public class Board {
     }
 
     public void deleteFigureFromBoard() {
-        for (Shape tempFigure : board) {
-            if (tempFigure != null) {
+            if (index < board.size()) {
+                Shape tempFigure = board.get(index);
                 overallArea -= tempFigure.getArea();
                 System.out.println("Was deleted " + tempFigure.getName());
                 board.remove(tempFigure);
-                break;
+
             } else {
                 System.out.println("No figure was deleted");
             }
         }
-    }
+
 
     public void printInformationFigureOnTheBoard() {
         System.out.println("On the board you can see: ");
-        if (board.size() == 0) {
+        if (board.size() == index) {
             System.out.println("Nothing?");
         }
         for (Shape temp : board) {
