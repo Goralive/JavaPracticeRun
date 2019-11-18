@@ -30,17 +30,16 @@ public class ShapeMain {
         doska.overallSqueareOfTheFiguresOnTheBoard();
         doska.overallSqueareOfTheFiguresOnTheBoard();
 
-        doska.deleteFigureFromBoard();
+        doska.deleteFigureFromBoard(2);
         doska.printInformationFigureOnTheBoard();
 
         doska.addFigureToBoard(square);
+        doska.addFigureToBoard(triangle);
+        doska.addFigureToBoard(circle);
         doska.addFigureToBoard(square);
-        doska.addFigureToBoard(square);
-        doska.deleteFigureFromBoard();
-        doska.deleteFigureFromBoard();
-        doska.deleteFigureFromBoard();
-        doska.addFigureToBoard(square);
-        doska.addFigureToBoard(square);
+        doska.deleteFigureFromBoard(4);
+        doska.deleteFigureFromBoard(2);
+        doska.deleteFigureFromBoard(0);
         doska.printInformationFigureOnTheBoard();
         doska.overallSqueareOfTheFiguresOnTheBoard();
     }
