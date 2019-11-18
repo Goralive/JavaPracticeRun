@@ -1,8 +1,10 @@
 package oop.inheritance;
 
-abstract class Shape {
+public abstract class Shape {
 
-    abstract double getPerimeter();
-    abstract double getArea();
+    public abstract double getPerimeter();
+    public abstract double getArea();
+    public abstract String getName();
+
 
 }

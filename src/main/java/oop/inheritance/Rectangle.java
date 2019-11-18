@@ -1,34 +1,41 @@
 package oop.inheritance;
 
-public class Triangle extends Shape {
-    private final String name = "Triangle";
+public class Rectangle extends Shape {
+    private final String name = "Rectangle";
 
     private Point a;
     private Point b;
     private Point c;
+    private Point d;
 
     private double sideA;
     private double sideB;
-    private double sideC;
 
-    public Triangle(Point a, Point b, Point c) {
+    public Rectangle(double sideA, double sideB) {
+        this.sideA = sideA;
+        this.sideB = sideB;
+    }
+
+    public Rectangle(Point a, Point b, Point c, Point d) {
         this.a = a;
         this.b = b;
         this.c = c;
+        this.d = d;
         this.sideA = a.getDistance(a, b);
-        this.sideB = b.getDistance(b, c);
-        this.sideC = c.getDistance(a, c);
+        this.sideB = a.getDistance(a, d);
     }
+
+
 
     @Override
     public double getPerimeter() {
-        return sideA + sideB + sideC;
+        return 2 * (sideA + sideB);
     }
+
 
     @Override
     public double getArea() {
-        double polP = getPerimeter() / 2;
-        return Math.sqrt(polP * (polP - sideA) * (polP - sideB) * (polP - sideC));
+        return sideA * sideB;
     }
 
     @Override

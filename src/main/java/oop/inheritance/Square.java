@@ -2,22 +2,36 @@ package oop.inheritance;
 
 public class Square extends Shape {
     private final String name = "Square";
-    private Point a = new Point(1,1);
-    private Point b = new Point(6,1);
-    private Point c = new Point(1,3);
-    private Point d = new Point(6,3);
+    private Point a;
+    private Point b;
+    private Point c;
+    private Point d;
+    private double sideA;
 
     public String getName() {
         return name;
     }
 
-    @Override
-    double getPerimeter() {
-        return 0;
+    public Square(Point a, Point b, Point c, Point d) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
+        this.sideA = a.getDistance(a, c);
+    }
+
+    public Square(double sideA) {
+        this.sideA = sideA;
     }
 
     @Override
-    double getArea() {
-        return 0;
+    public double getPerimeter() {
+        return 4 * sideA;
+    }
+
+    @Override
+    public double getArea() {
+        return sideA * sideA;
+
     }
 }
