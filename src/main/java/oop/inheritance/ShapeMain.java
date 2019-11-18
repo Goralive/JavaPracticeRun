@@ -27,18 +27,21 @@ public class ShapeMain {
         Board doska = new Board();
         doska.addFigureToBoard(circle);
         doska.printInformationFigureOnTheBoard();
-        doska.overalSqueareOfTheFiguresOnTheBoard();
-        doska.overalSqueareOfTheFiguresOnTheBoard();
+        doska.overallSqueareOfTheFiguresOnTheBoard();
+        doska.overallSqueareOfTheFiguresOnTheBoard();
 
-        doska.deleteFigureFromBoard(0);
+        doska.deleteFigureFromBoard();
         doska.printInformationFigureOnTheBoard();
 
         doska.addFigureToBoard(square);
         doska.addFigureToBoard(square);
         doska.addFigureToBoard(square);
+        doska.deleteFigureFromBoard();
+        doska.deleteFigureFromBoard();
+        doska.deleteFigureFromBoard();
         doska.addFigureToBoard(square);
         doska.addFigureToBoard(square);
         doska.printInformationFigureOnTheBoard();
-        doska.overalSqueareOfTheFiguresOnTheBoard();
+        doska.overallSqueareOfTheFiguresOnTheBoard();
     }
 }

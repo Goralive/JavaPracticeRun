@@ -10,7 +10,7 @@ public class Circle extends Shape {
     public Circle(Point a, Point b) {
         this.a = a;
         this.b = b;
-        radius = a.getDistance(a, b);
+        this.radius = a.getDistance(a, b);
     }
 
 

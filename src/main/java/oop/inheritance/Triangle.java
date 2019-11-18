@@ -15,9 +15,9 @@ public class Triangle extends Shape {
         this.a = a;
         this.b = b;
         this.c = c;
-        sideA = a.getDistance(a, b);
-        sideB = b.getDistance(b, c);
-        sideC = c.getDistance(a, c);
+        this.sideA = a.getDistance(a, b);
+        this.sideB = b.getDistance(b, c);
+        this.sideC = c.getDistance(a, c);
     }
 
     @Override

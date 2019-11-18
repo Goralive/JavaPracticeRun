@@ -21,11 +21,16 @@ public class Board {
         }
     }
 
-    public void deleteFigureFromBoard(int numberOfDeleteFigure) {
-        if (0 < board.size() && board.size() < 4) {
-            overallArea -= board.get(numberOfDeleteFigure).getArea();
-            System.out.println("Was deleted " + board.remove(numberOfDeleteFigure).getName());
-
+    public void deleteFigureFromBoard() {
+        for (Shape tempFigure : board) {
+            if (tempFigure != null) {
+                overallArea -= tempFigure.getArea();
+                System.out.println("Was deleted " + tempFigure.getName());
+                board.remove(tempFigure);
+                break;
+            } else {
+                System.out.println("No figure was deleted");
+            }
         }
     }
 
@@ -39,7 +44,7 @@ public class Board {
         }
     }
 
-    public void overalSqueareOfTheFiguresOnTheBoard() {
+    public void overallSqueareOfTheFiguresOnTheBoard() {
         System.out.println("Overall area of the figures that are present on the board is: " + overallArea);
     }
 }

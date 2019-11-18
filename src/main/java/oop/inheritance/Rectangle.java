@@ -21,8 +21,8 @@ public class Rectangle extends Shape {
         this.b = b;
         this.c = c;
         this.d = d;
-        sideA = a.getDistance(a, b);
-        sideB = a.getDistance(a, d);
+        this.sideA = a.getDistance(a, b);
+        this.sideB = a.getDistance(a, d);
     }
 
 
