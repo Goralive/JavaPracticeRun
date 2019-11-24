@@ -11,12 +11,12 @@ sourceCompatibility = 1.11
 repositories {
     mavenCentral()
 }
-    dependencies {
-        testCompile group: 'junit', name: 'junit', version: '4.12'
-        // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
-        compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.41.0'
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    testCompile 'org.assertj:assertj-core:3.11.1'
+    compile 'org.seleniumhq.selenium:selenium-java:2.41.0'
 
-    }
+}
 
 
 
