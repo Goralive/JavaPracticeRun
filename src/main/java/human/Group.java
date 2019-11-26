@@ -1,5 +1,9 @@
 package human;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Group {
     private int groupNumber;
     private String universityName;
@@ -75,6 +79,18 @@ public class Group {
             System.out.println("No student was found");
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        Arrays.sort(groupWithStudents, new Comparator<Student>() {
+            @Override
+            public int compare(Student student, Student student2) {
+                return student.getSurname().compareTo(student2.getSurname());
+            }
+        });
+
+        return "Group " + getGroupNumber() + " have students: " + Arrays.toString(groupWithStudents);
     }
 }
 
