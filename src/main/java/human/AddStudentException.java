@@ -4,6 +4,6 @@ public class AddStudentException extends Exception {
 
     @Override
     public String getMessage() {
-        return "Only 10 student can be in the group";
+        return "Can't add new student. Size of the group is less";
     }
 }

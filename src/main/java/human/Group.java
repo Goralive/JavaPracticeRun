@@ -34,25 +34,26 @@ public class Group {
 
 
     public void addStudentToGroup(Student student) throws AddStudentException {
-        for (int i = 0; i < groupWithStudents.length; i++) {
+        int sizeOfArray = groupWithStudents.length;
+        for (int i = 0; i < sizeOfArray; i++) {
 
             if (groupWithStudents[i] == null) {
                 groupWithStudents[i] = student;
                 System.out.println("Add student " + student.getName() + " " + student.getSurname());
                 break;
             }
-            if (groupWithStudents[9] != null) {
+            if (groupWithStudents[sizeOfArray - 1] != null) {
                 throw new AddStudentException();
             }
         }
     }
 
 
-    public void deleteStudentFromGroup(Student student) {
+    public void deleteStudentFromGroup(String name, String surname) {
         try {
             for (int i = 0; i < groupWithStudents.length; i++) {
-                if (groupWithStudents[i].hashCode() == student.hashCode()) {
-                    System.out.println("Student " + student.getName() + " " + student.getSurname() + " was deleted");
+                if (groupWithStudents[i].getName() == name && groupWithStudents[i].getSurname() == surname) {
+                    System.out.println("Student " + name + " " + surname + " was deleted");
                     groupWithStudents[i] = null;
                     break;
                 }
@@ -62,10 +63,11 @@ public class Group {
         }
     }
 
-    public Student findStudent(String surname) {
+    public Student findStudent(String name, String surname) {
         try {
             for (int i = 0; i < groupWithStudents.length; i++) {
-                if (groupWithStudents[i].getSurname().equalsIgnoreCase(surname)) {
+                if (groupWithStudents[i].getName().equalsIgnoreCase(name) && groupWithStudents[i].getSurname().equalsIgnoreCase(surname)) {
+                    System.out.println("Was found student: " + groupWithStudents[i].getName() + " " + groupWithStudents[i].getSurname());
                     return groupWithStudents[i];
                 }
             }
