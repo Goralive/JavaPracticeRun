@@ -33,16 +33,46 @@ public class Group {
     }
 
 
-    public void addStudentToGroup(Student student) {
+    public void addStudentToGroup(Student student) throws AddStudentException {
         for (int i = 0; i < groupWithStudents.length; i++) {
+
             if (groupWithStudents[i] == null) {
                 groupWithStudents[i] = student;
                 System.out.println("Add student " + student.getName() + " " + student.getSurname());
                 break;
             }
-            System.out.println(i + "." + groupWithStudents[i].getName() + " " + groupWithStudents[i].getSurname());
+            if (groupWithStudents[9] != null) {
+                throw new AddStudentException();
+            }
         }
     }
 
 
+    public void deleteStudentFromGroup(Student student) {
+        try {
+            for (int i = 0; i < groupWithStudents.length; i++) {
+                if (groupWithStudents[i].hashCode() == student.hashCode()) {
+                    System.out.println("Student " + student.getName() + " " + student.getSurname() + " was deleted");
+                    groupWithStudents[i] = null;
+                    break;
+                }
+            }
+        } catch (NullPointerException e) {
+            System.out.println("No student was deleted");
+        }
+    }
+
+    public Student findStudent(String surname) {
+        try {
+            for (int i = 0; i < groupWithStudents.length; i++) {
+                if (groupWithStudents[i].getSurname().equalsIgnoreCase(surname)) {
+                    return groupWithStudents[i];
+                }
+            }
+        } catch (NullPointerException e) {
+            System.out.println("No student was found");
+        }
+        return null;
+    }
 }
+
