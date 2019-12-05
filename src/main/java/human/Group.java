@@ -1,13 +1,14 @@
 package human;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 public class Group {
     private int groupNumber;
     private String universityName;
     private Student[] groupWithStudents;
+
 
     public Group(String universityName, int groupNumber, int groupSize) {
         this.universityName = universityName;
@@ -40,7 +41,6 @@ public class Group {
     public void addStudentToGroup(Student student) throws AddStudentException {
         int sizeOfArray = groupWithStudents.length;
         for (int i = 0; i < sizeOfArray; i++) {
-
             if (groupWithStudents[i] == null) {
                 groupWithStudents[i] = student;
                 System.out.println("Add student " + student.getName() + " " + student.getSurname());
@@ -81,16 +81,31 @@ public class Group {
         return null;
     }
 
-    @Override
-    public String toString() {
-        Arrays.sort(groupWithStudents, new Comparator<Student>() {
+    public void sortArray(Student[] students) {
+        Arrays.sort(students, new Comparator<Student>() {
             @Override
             public int compare(Student student, Student student2) {
                 return student.getSurname().compareTo(student2.getSurname());
             }
         });
+    }
 
-        return "Group " + getGroupNumber() + " have students: " + Arrays.toString(groupWithStudents);
+    public String printStudentsFromGroup() {
+        String studentsNames = " ";
+        for (Student studentName : groupWithStudents) {
+        studentsNames += studentName.getFullName() + " ";
+        }
+        return studentsNames;
+    }
+
+    @Override
+    public String toString() {
+        sortArray(groupWithStudents);
+        return "Group{" +
+                "groupNumber=" + this.groupNumber +
+                ", universityName='" + this.universityName + '\'' +
+                ", groupWithStudents=" + printStudentsFromGroup() +
+                '}';
     }
 }
 
