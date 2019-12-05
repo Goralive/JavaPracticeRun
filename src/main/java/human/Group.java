@@ -54,29 +54,30 @@ public class Group {
 
 
     public void deleteStudentFromGroup(String name, String surname) {
-        try {
-            for (int i = 0; i < groupWithStudents.length; i++) {
+        for (int i = 0; i < groupWithStudents.length; i++) {
+            try {
                 if (groupWithStudents[i].getName() == name && groupWithStudents[i].getSurname() == surname) {
                     System.out.println("Student " + name + " " + surname + " was deleted");
                     groupWithStudents[i] = null;
                     break;
                 }
+            } catch (NullPointerException e) {
+                System.out.println("No student was deleted");
             }
-        } catch (NullPointerException e) {
-            System.out.println("No student was deleted");
+
         }
     }
 
     public Student findStudent(String name, String surname) {
-        try {
-            for (int i = 0; i < groupWithStudents.length; i++) {
+        for (int i = 0; i < groupWithStudents.length; i++) {
+            try {
                 if (groupWithStudents[i].getName().equalsIgnoreCase(name) && groupWithStudents[i].getSurname().equalsIgnoreCase(surname)) {
                     System.out.println("Was found student: " + groupWithStudents[i].getName() + " " + groupWithStudents[i].getSurname());
                     return groupWithStudents[i];
                 }
+            } catch (NullPointerException e) {
+                System.out.println("No student was found");
             }
-        } catch (NullPointerException e) {
-            System.out.println("No student was found");
         }
         return null;
     }
@@ -85,7 +86,7 @@ public class Group {
         Arrays.sort(students, new Comparator<Student>() {
             @Override
             public int compare(Student student, Student student2) {
-                return student.getSurname().compareTo(student2.getSurname());
+                return student.getName().compareTo(student2.getName());
             }
         });
     }
@@ -93,7 +94,7 @@ public class Group {
     public String printStudentsFromGroup() {
         String studentsNames = " ";
         for (Student studentName : groupWithStudents) {
-        studentsNames += studentName.getFullName() + " ";
+            studentsNames += studentName.getFullName() + " ";
         }
         return studentsNames;
     }
