@@ -1,6 +1,6 @@
 package human;
 
-public class Human {
+public class Human implements Comparable {
     private String name;
     private String surname;
     private int age;
@@ -60,5 +60,26 @@ public class Human {
                 + "\nAge is: " + age
                 + "\nWeight and height: " + weight + " " + height;
 
+    }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age=" + age +
+                ", weight=" + weight +
+                ", height=" + height +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (o == null) {
+            return -1;
+        } else {
+            Human anotherHuman = (Human) o;
+            return this.surname.compareToIgnoreCase(anotherHuman.getSurname());
+        }
     }
 }

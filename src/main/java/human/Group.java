@@ -2,7 +2,6 @@ package human;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 
 public class Group {
     private int groupNumber;
@@ -82,14 +81,6 @@ public class Group {
         return null;
     }
 
-    public void sortArray(Student[] students) {
-        Arrays.sort(students, new Comparator<Student>() {
-            @Override
-            public int compare(Student student, Student student2) {
-                return student.getName().compareTo(student2.getName());
-            }
-        });
-    }
 
     public String printStudentsFromGroup() {
         String studentsNames = " ";
@@ -101,7 +92,6 @@ public class Group {
 
     @Override
     public String toString() {
-        sortArray(groupWithStudents);
         return "Group{" +
                 "groupNumber=" + this.groupNumber +
                 ", universityName='" + this.universityName + '\'' +

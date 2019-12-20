@@ -17,8 +17,10 @@ public class Main {
         seven.findStudent("jackson","Ford");
         seven.addStudentToGroup(jackson);
         seven.addStudentToGroup(bob);
+
         System.out.println("----");
         //seven.addStudentToGroup(jackson);
+        jackson.compareTo(bob);
         System.out.println(seven.toString());
 
 
