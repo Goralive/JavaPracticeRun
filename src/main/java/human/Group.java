@@ -3,7 +3,7 @@ package human;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Group {
+public class Group implements ArmyMan {
     private int groupNumber;
     private String universityName;
     private Student[] groupWithStudents;
@@ -14,7 +14,6 @@ public class Group {
         this.groupNumber = groupNumber;
         groupWithStudents = new Student[groupSize];
     }
-
 
     public int getGroupNumber() {
         return groupNumber;
@@ -63,8 +62,28 @@ public class Group {
             } catch (NullPointerException e) {
                 System.out.println("No student was deleted");
             }
-
         }
+    }
+
+    public Student[] sortStudents(Student[] notSortedStudensts) {
+        Arrays.sort(notSortedStudensts);
+        return notSortedStudensts;
+    }
+
+    public Student[] sortStudents(Student[] notSortedStudensts, String sortBy) {
+        switch (sortBy) {
+            case "name":
+                Arrays.sort(notSortedStudensts, new SortByName());
+                break;
+            case "age":
+                Arrays.sort(notSortedStudensts, new SortByAge());
+                break;
+            default:
+                Arrays.sort(notSortedStudensts);
+                break;
+        }
+
+        return notSortedStudensts;
     }
 
     public Student findStudent(String name, String surname) {
@@ -81,22 +100,55 @@ public class Group {
         return null;
     }
 
-
     public String printStudentsFromGroup() {
         String studentsNames = " ";
         for (Student studentName : groupWithStudents) {
-            studentsNames += studentName.getFullName() + " ";
+            try {
+                studentsNames += studentName.getFullName() + " ";
+            } catch (NullPointerException e) {
+            }
         }
         return studentsNames;
     }
 
     @Override
     public String toString() {
-        return "Group{" +
-                "groupNumber=" + this.groupNumber +
-                ", universityName='" + this.universityName + '\'' +
-                ", groupWithStudents=" + printStudentsFromGroup() +
-                '}';
+        return "----- \nUniversity name: " + this.universityName
+                + "\nGroup number is " + this.groupNumber
+                + "\nSize of the group is " + this.groupWithStudents.length
+                + "\nStudents in the group: " + this.printStudentsFromGroup() + "\n-----";
+    }
+
+
+    @Override
+    public Student[] recruits(Student[] students) {
+        int recruiterAge = 18;
+        Student[] recruits = new Student[students.length];
+        for (Student temp : students) {
+            if (temp.getAge() > recruiterAge) {
+                for (int i = 0; 0 < recruits.length; i++) {
+                    if (recruits[i] == null) {
+                        recruits[i] = temp;
+                        break;
+                    }
+                }
+            }
+        }
+        return recruits;
+    }
+
+    @Override
+    public void printListOfRecruits (Student[] recruits) {
+        int freePlaces = 0;
+        System.out.println("THIS STUDENTS WILL GO WITH ME:");
+        try {
+            for (Student recruit : recruits) {
+                System.out.println(recruit.getFullName());
+            }
+        } catch (NullPointerException e) {
+            freePlaces++;
+        }
+        System.out.println("We have a " + freePlaces + " free place here. FEEL FREE TO JOIN");
     }
 }
 

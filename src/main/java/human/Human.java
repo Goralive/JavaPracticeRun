@@ -1,6 +1,6 @@
 package human;
 
-public class Human implements Comparable {
+public class Human implements Comparable<Human> {
     private String name;
     private String surname;
     private int age;
@@ -55,6 +55,7 @@ public class Human implements Comparable {
         this.height = height;
     }
 
+
     public String getInformation() {
         return "The name is: " + name + " " + surname
                 + "\nAge is: " + age
@@ -74,12 +75,27 @@ public class Human implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
-        if (o == null) {
-            return -1;
-        } else {
-            Human anotherHuman = (Human) o;
-            return this.surname.compareToIgnoreCase(anotherHuman.getSurname());
+    public int compareTo(final Human other) {
+        if (other == null) {
+            throw new NullPointerException();
         }
+
+        int result = nullSafeStringComparator(this.surname, other.surname);
+        if (result != 0) {
+            return result;
+        }
+        return nullSafeStringComparator(this.name, other.name);
+    }
+
+
+    private int nullSafeStringComparator(final String one, final String two) {
+        if (one == null ^ two == null) {
+            return (one == null) ? -1 : 1;
+        }
+
+        if(one == null && two == null){
+            return 0;
+        }
+        return one.compareToIgnoreCase(two);
     }
 }
