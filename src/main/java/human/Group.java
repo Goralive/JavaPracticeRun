@@ -1,7 +1,6 @@
 package human;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 public class Group implements ArmyMan {
     private int groupNumber;
@@ -31,10 +30,9 @@ public class Group implements ArmyMan {
         this.universityName = universityName;
     }
 
-    public Student[] getGroupWithStudents() {
+    public Student[] getStudensFromGroup() {
         return groupWithStudents;
     }
-
 
     public void addStudentToGroup(Student student) throws AddStudentException {
         int sizeOfArray = groupWithStudents.length;
@@ -50,13 +48,14 @@ public class Group implements ArmyMan {
         }
     }
 
-
     public void deleteStudentFromGroup(String name, String surname) {
         for (int i = 0; i < groupWithStudents.length; i++) {
             try {
-                if (groupWithStudents[i].getName() == name && groupWithStudents[i].getSurname() == surname) {
+                if (groupWithStudents[i].getName().equalsIgnoreCase(name) && groupWithStudents[i].getSurname().equalsIgnoreCase(surname)) {
                     System.out.println("Student " + name + " " + surname + " was deleted");
                     groupWithStudents[i] = null;
+                    Student temp = groupWithStudents[i];
+
                     break;
                 }
             } catch (NullPointerException e) {
@@ -82,7 +81,6 @@ public class Group implements ArmyMan {
                 Arrays.sort(notSortedStudensts);
                 break;
         }
-
         return notSortedStudensts;
     }
 
@@ -118,7 +116,6 @@ public class Group implements ArmyMan {
                 + "\nSize of the group is " + this.groupWithStudents.length
                 + "\nStudents in the group: " + this.printStudentsFromGroup() + "\n-----";
     }
-
 
     @Override
     public Student[] recruits(Student[] students) {

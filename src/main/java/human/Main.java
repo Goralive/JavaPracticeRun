@@ -10,16 +10,16 @@ public class Main {
         Group seven = new Group("KPI", 7, 3);
 
         seven.addStudentToGroup(vova);
-        seven.addStudentToGroup(jackson);
-        seven.findStudent("jackson", "Ford");
-        seven.findStudent("Bobby", "Ford");
-        seven.deleteStudentFromGroup("Jackson", "Ford");
-        seven.findStudent("jackson", "Ford");
-        seven.addStudentToGroup(jackson);
         seven.addStudentToGroup(bob);
-        seven.sortStudents(seven.getGroupWithStudents(), "age");
-        Student[] recruit = seven.recruits(seven.getGroupWithStudents());
-        seven.printListOfRecruits(recruit);
+        seven.addStudentToGroup(jackson);
+        seven.findStudent("jackson", "Ford");
+        seven.findStudent("Bobby", "Portis");
+        seven.deleteStudentFromGroup("Bobby", "Portis");
+        seven.findStudent("jackson", "Ford");
+      //  seven.addStudentToGroup(bob);
+       // seven.sortStudents(seven.getGroupWithStudents(), "age");
+      //  Student[] recruit = seven.recruits(seven.getGroupWithStudents());
+       // seven.printListOfRecruits(recruit);
         System.out.println("----");
         System.out.println(seven.toString());
 
