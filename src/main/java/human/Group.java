@@ -6,6 +6,7 @@ public class Group implements ArmyMan {
     private int groupNumber;
     private String universityName;
     private Student[] groupWithStudents;
+    private Student[] recruits;
 
 
     public Group(String universityName, int groupNumber, int groupSize) {
@@ -49,23 +50,29 @@ public class Group implements ArmyMan {
     }
 
     public void deleteStudentFromGroup(String name, String surname) {
-        for (int i = 0; i < groupWithStudents.length; i++) {
-            try {
-                if (groupWithStudents[i].getName().equalsIgnoreCase(name) && groupWithStudents[i].getSurname().equalsIgnoreCase(surname)) {
-                    System.out.println("Student " + name + " " + surname + " was deleted");
-                    groupWithStudents[i] = null;
-                    Student temp = groupWithStudents[i];
-
-                    break;
+        int lengthOfArray = groupWithStudents.length;
+        for (int i = 0; i < lengthOfArray; i++) {
+            if (groupWithStudents[i].getName().equalsIgnoreCase(name) && groupWithStudents[i].getSurname().equalsIgnoreCase(surname)) {
+                System.out.println("Student " + name + " " + surname + " was deleted");
+                for (int j = i; j < lengthOfArray; j++) {
+                    if (j + 1 < lengthOfArray && groupWithStudents[j] != null) {
+                        groupWithStudents[j] = groupWithStudents[j + 1];
+                        groupWithStudents[j + 1] = null;
+                    } else {
+                    }
                 }
-            } catch (NullPointerException e) {
-                System.out.println("No student was deleted");
+                break;
             }
         }
     }
 
+
     public Student[] sortStudents(Student[] notSortedStudensts) {
-        Arrays.sort(notSortedStudensts);
+        try {
+            Arrays.sort(notSortedStudensts);
+        } catch (NullPointerException e) {
+            System.out.println("Not a full group");
+        }
         return notSortedStudensts;
     }
 
@@ -118,34 +125,47 @@ public class Group implements ArmyMan {
     }
 
     @Override
-    public Student[] recruits(Student[] students) {
+    public Human[] recruits() {
         int recruiterAge = 18;
-        Student[] recruits = new Student[students.length];
-        for (Student temp : students) {
-            if (temp.getAge() > recruiterAge) {
-                for (int i = 0; 0 < recruits.length; i++) {
-                    if (recruits[i] == null) {
-                        recruits[i] = temp;
-                        break;
+        int arraysLength = calculateArraySize();
+
+        recruits = new Student[arraysLength];
+        for (Student temp : this.groupWithStudents) {
+            if (temp != null) {
+                if (temp.getAge() > recruiterAge) {
+                    for (int i = 0; 0 < recruits.length; i++) {
+                        if (recruits[i] == null) {
+                            recruits[i] = temp;
+                            break;
+                        }
                     }
                 }
             }
         }
+        System.out.println("The recruits array size is " + recruits.length);
         return recruits;
     }
 
+    private int calculateArraySize() {
+        int arraySize = groupWithStudents.length - 1;
+        for (Student temp : groupWithStudents) {
+            if (temp == null) {
+                arraySize -= 1;
+            }
+        }
+        return arraySize;
+    }
+
     @Override
-    public void printListOfRecruits (Student[] recruits) {
-        int freePlaces = 0;
+    public void printListOfRecruits() {
         System.out.println("THIS STUDENTS WILL GO WITH ME:");
+        int iterator = 1;
         try {
-            for (Student recruit : recruits) {
-                System.out.println(recruit.getFullName());
+            for (Student recruit : this.recruits) {
+                System.out.println(iterator + "." + recruit.getFullName());
+                iterator++;
             }
         } catch (NullPointerException e) {
-            freePlaces++;
         }
-        System.out.println("We have a " + freePlaces + " free place here. FEEL FREE TO JOIN");
     }
 }
-

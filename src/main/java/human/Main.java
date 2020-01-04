@@ -15,11 +15,11 @@ public class Main {
         seven.findStudent("jackson", "Ford");
         seven.findStudent("Bobby", "Portis");
         seven.deleteStudentFromGroup("Bobby", "Portis");
+        System.out.println(seven.toString());
+
         seven.findStudent("jackson", "Ford");
-      //  seven.addStudentToGroup(bob);
-       // seven.sortStudents(seven.getGroupWithStudents(), "age");
-      //  Student[] recruit = seven.recruits(seven.getGroupWithStudents());
-       // seven.printListOfRecruits(recruit);
+        seven.recruits();
+        seven.printListOfRecruits();
         System.out.println("----");
         System.out.println(seven.toString());
 
