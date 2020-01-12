@@ -59,6 +59,7 @@ public class Group implements ArmyMan {
                         groupWithStudents[j] = groupWithStudents[j + 1];
                         groupWithStudents[j + 1] = null;
                     } else {
+                        groupWithStudents[j] = null;
                     }
                 }
                 break;
