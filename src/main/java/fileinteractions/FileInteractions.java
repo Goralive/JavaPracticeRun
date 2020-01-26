@@ -6,35 +6,56 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class FileInteractions {
+    private File[] fileList;
+    private File folder;
+    private String[] extensionList = {"txt", "doc"};
+    private String folderFrom;
+    private String folderTo;
 
-    public boolean isDirectoryContainsTXT(String folderFrom) {
-        MyFileFilter fileFilter = new MyFileFilter("txt", "doc");
-        File f = new File(folderFrom);
-        return false;
+    public FileInteractions(String folderFrom, String folderTo) {
+        this.folderFrom = folderFrom;
+        this.folderTo = folderTo;
     }
 
-    public void directoryCreated(String folderTo) {
+    public boolean isDirectoryContainsFiles() {
+        MyFileFilter fileFilter = new MyFileFilter(extensionList);
+        folder = new File(this.folderFrom);
+        fileList = folder.listFiles(fileFilter);
+        return fileList.length > 0;
     }
 
-    public void copyTXT(String from, String to) {
-        System.out.printf("%nThe file will be copied to %s", to);
-        try (FileInputStream fileInputStream = new FileInputStream(from);
-             FileOutputStream fileOutputStream = new FileOutputStream(to)) {
-            byte[] buffer = new byte[1024];
-            int byteReader;
-            for (; (byteReader = fileInputStream.read(buffer)) > 0; ) {
-                fileOutputStream.write(buffer, 0, byteReader);
-            }
-        } catch (IOException e) {
-            System.out.println(e);
+    public void directoryCreated() {
+        if (!folder.exists()) {
+            folder.mkdirs();
         }
     }
 
+    public void copy() {
+        System.out.printf("%nThe file will be copied to %s from %s folder", this.folderTo, this.folderFrom);
+        for (File fileInTheList: fileList)
+            try (FileInputStream fileInputStream = new FileInputStream(fileInTheList);
+                 FileOutputStream fileOutputStream = new FileOutputStream(this.folderTo)) {
+                byte[] buffer = new byte[1024];
+                int byteReader;
+                for (; (byteReader = fileInputStream.read(buffer)) > 0; ) {
+                    fileOutputStream.write(buffer, 0, byteReader);
+                }
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+    }
+
     // page 239 //274
-    public void copyDataFromtxt(String folderFrom, String folderTo) {
-        isDirectoryContainsTXT(folderFrom);
-        directoryCreated(folderTo);
-        copyTXT(folderFrom, folderTo);
+    public void copyDataFromFile() {
+        if (isDirectoryContainsFiles()) {
+            directoryCreated();
+            copy();
+        } else {
+            System.out.println("No file found for extension");
+            for (String temp : extensionList) {
+                System.out.println(temp);
+            }
+        }
     }
 }
 // 1. Напишите программу которая скопирует файлы (с заранее
