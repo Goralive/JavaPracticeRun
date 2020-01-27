@@ -7,34 +7,30 @@ import java.io.IOException;
 
 public class FileInteractions {
     private File[] fileList;
-    private File folder;
+    private File fileFolderTo;
+    private File fileFolderFrom;
     private String[] extensionList = {"txt", "doc"};
-    private String folderFrom;
-    private String folderTo;
 
     public FileInteractions(String folderFrom, String folderTo) {
-        this.folderFrom = folderFrom;
-        this.folderTo = folderTo;
+        this.fileFolderTo = new File(folderTo);
+        this.fileFolderFrom = new File(folderFrom);
     }
 
     public boolean isDirectoryContainsFiles() {
         MyFileFilter fileFilter = new MyFileFilter(extensionList);
-        folder = new File(this.folderFrom);
-        fileList = folder.listFiles(fileFilter);
+        fileList = fileFolderFrom.listFiles(fileFilter);
         return fileList.length > 0;
     }
 
     public void directoryCreated() {
-        if (!folder.exists()) {
-            folder.mkdirs();
-        }
+            this.fileFolderTo.mkdirs();
     }
 
     public void copy() {
-        System.out.printf("%nThe file will be copied to %s from %s folder", this.folderTo, this.folderFrom);
-        for (File fileInTheList: fileList)
+        System.out.printf("%nThe file will be copied to %s from %s folder", this.fileFolderTo.getAbsolutePath(), this.fileFolderFrom.getAbsolutePath());
+        for (File fileInTheList : fileList)
             try (FileInputStream fileInputStream = new FileInputStream(fileInTheList);
-                 FileOutputStream fileOutputStream = new FileOutputStream(this.folderTo)) {
+                 FileOutputStream fileOutputStream = new FileOutputStream(fileFolderTo.getAbsolutePath() + "/" + fileInTheList.getName())) {
                 byte[] buffer = new byte[1024];
                 int byteReader;
                 for (; (byteReader = fileInputStream.read(buffer)) > 0; ) {
@@ -45,7 +41,6 @@ public class FileInteractions {
             }
     }
 
-    // page 239 //274
     public void copyDataFromFile() {
         if (isDirectoryContainsFiles()) {
             directoryCreated();
@@ -58,8 +53,5 @@ public class FileInteractions {
         }
     }
 }
-// 1. Напишите программу которая скопирует файлы (с заранее
-//определенным расширением — например только doc) из
-//каталога источника в каталог приемник.
 
 
