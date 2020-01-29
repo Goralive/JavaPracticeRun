@@ -1,9 +1,7 @@
 package fileinteractions;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.stream.Collectors;
 
 public class FileInteractions {
     private File[] fileList;
@@ -23,7 +21,7 @@ public class FileInteractions {
     }
 
     public void directoryCreated() {
-            this.fileFolderTo.mkdirs();
+        this.fileFolderTo.mkdirs();
     }
 
     public void copy() {
@@ -52,6 +50,36 @@ public class FileInteractions {
             }
         }
     }
+
+    public void mergeTwoFiles(String firstFile, String secondFile) {
+        String merged = readFileForMerge(firstFile, secondFile);
+        writeToNewFile("merged.txt", merged);
+        System.out.println();
+    }
+
+    private void writeToNewFile(String fileName, String content) {
+        File file = new File(fileName);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+            writer.write(content);
+            writer.flush();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public String readFileForMerge(String firstFile, String secondFile) {
+        String mergeTwoFiles = readAllLinesWithStream(firstFile) + "\n" + readAllLinesWithStream(secondFile);
+        return mergeTwoFiles;
+    }
+
+    public String readAllLinesWithStream(String filePath) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
+            return bufferedReader.lines().collect(Collectors.joining(System.lineSeparator()));
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
 }
-
-
