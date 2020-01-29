@@ -27,6 +27,7 @@ public class Main {
 
         //seven.addStudentToGroup(jackson);
         System.out.println("Created group by user\n" + userGroup.toString());
+        seven.groupToFile();
 
 
     }

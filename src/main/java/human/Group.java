@@ -1,5 +1,11 @@
 package human;
 
+import fileinteractions.FileInteractions;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class Group implements ArmyMan {
@@ -117,6 +123,28 @@ public class Group implements ArmyMan {
         return studentsNames;
     }
 
+    private int calculateArraySize() {
+        int arraySize = groupWithStudents.length - 1;
+        for (Student temp : groupWithStudents) {
+            if (temp == null) {
+                arraySize -= 1;
+            }
+        }
+        return arraySize;
+    }
+
+    public void groupToFile() {
+        File file = new File("group" + this.getUniversityName() + this.getGroupNumber() + ".txt");
+        System.out.println("Created txt file for group. File you can find using path " + file.getAbsolutePath());
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
+            bufferedWriter.write(this.toString());
+            bufferedWriter.flush();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
     @Override
     public String toString() {
         return "----- \nUniversity name: " + this.universityName
@@ -145,16 +173,6 @@ public class Group implements ArmyMan {
         }
         System.out.println("The recruits array size is " + recruits.length);
         return recruits;
-    }
-
-    private int calculateArraySize() {
-        int arraySize = groupWithStudents.length - 1;
-        for (Student temp : groupWithStudents) {
-            if (temp == null) {
-                arraySize -= 1;
-            }
-        }
-        return arraySize;
     }
 
     @Override
