@@ -1,7 +1,6 @@
 package fileinteractions;
 
 import java.io.*;
-import java.util.stream.Collectors;
 
 public class FileInteractions {
     private static String[] extensionList = {"txt", "doc"};
@@ -30,31 +29,34 @@ public class FileInteractions {
         }
     }
 
-    public static void mergeFiles(String folderPath) {
+    public static void mergeFiles(String folderPath, String... files) {
         File mergedFile = new File(folderPath + "merged.txt");
         File folder = new File(folderPath);
-        String mergedContent = "";
-
         File[] listFilesForMerge = folder.listFiles(fileFilter);
+
 
         if (listFilesForMerge.length > 0) {
             for (File file : listFilesForMerge) {
-                try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-                    mergedContent += bufferedReader.lines().collect(Collectors.joining(System.lineSeparator())) + "\n";
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+                for (String fileName : files) {
+                    if (file.getName().equalsIgnoreCase(fileName)) {
+                        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+                             BufferedWriter writer = new BufferedWriter(new FileWriter(mergedFile, true))) {
+                            String mergedContent = "";
+                            while ((mergedContent = bufferedReader.readLine()) != null) {
+                                writer.write(mergedContent);
+                                writer.newLine();
+                            }
 
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(mergedFile))) {
-                writer.write(mergedContent);
-                writer.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
+
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
             }
         }
     }
 }
-
