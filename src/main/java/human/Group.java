@@ -113,15 +113,13 @@ public class Group implements ArmyMan {
     }
 
     public String printStudentsFromGroup() {
-        String studentsNames = " ";
-        for (Student studentName : groupWithStudents) {
-            try {
-                studentsNames += studentName.getFullName() + " ";
-            } catch (NullPointerException e) {
-            }
+        for (int i = 0; i < groupWithStudents.length; i++) {
+            return groupWithStudents[i].getFullName() + "Age: " + groupWithStudents[i].getAge() + "Height: " + groupWithStudents[i].getHeight()
+                    + "Weight " + groupWithStudents[i].getWeight();
         }
-        return studentsNames;
+        return "";
     }
+
 
     private int calculateArraySize() {
         int arraySize = groupWithStudents.length - 1;
@@ -150,7 +148,7 @@ public class Group implements ArmyMan {
         return "----- \nUniversity name: " + this.universityName
                 + "\nGroup number is " + this.groupNumber
                 + "\nSize of the group is " + this.groupWithStudents.length
-                + "\nStudents in the group: " + this.printStudentsFromGroup() + "\n-----";
+                + "\nStudents in the group: " + Arrays.toString(groupWithStudents) + "\n-----";
     }
 
     @Override

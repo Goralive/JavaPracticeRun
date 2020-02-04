@@ -23,10 +23,10 @@ public class Main {
         System.out.println("----");
         System.out.println(seven.toString());
 
-        Group userGroup = input.createNewGroup();
+//        Group userGroup = input.createNewGroup();
 
         //seven.addStudentToGroup(jackson);
-        System.out.println("Created group by user\n" + userGroup.toString());
+  //      System.out.println("Created group by user\n" + userGroup.toString());
         seven.groupToFile();
 
 

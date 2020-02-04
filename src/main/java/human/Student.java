@@ -6,10 +6,7 @@ public class Student extends Human {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "institute='" + institute + '\'' +
-                ", group=" + group +
-                '}' + getName() + " " + getSurname();
+        return "\n" + getInformation();
     }
 
     public Student(String name, String surname, int age, double weight, int height, String institute, int group) {
