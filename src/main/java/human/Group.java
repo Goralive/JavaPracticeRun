@@ -1,12 +1,8 @@
 package human;
 
-import fileinteractions.FileInteractions;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Group implements ArmyMan {
     private int groupNumber;
@@ -18,7 +14,7 @@ public class Group implements ArmyMan {
     public Group(String universityName, int groupNumber, int groupSize) {
         this.universityName = universityName;
         this.groupNumber = groupNumber;
-        groupWithStudents = new Student[groupSize];
+        this.groupWithStudents = new Student[groupSize];
     }
 
     public int getGroupNumber() {
@@ -184,5 +180,36 @@ public class Group implements ArmyMan {
             }
         } catch (NullPointerException e) {
         }
+    }
+
+    public static Group createGroupFromFile(String fileLocation) {
+        Group tempGroup = null;
+        try (Scanner input = new Scanner(new File(fileLocation))) {
+            input.useDelimiter(",|\n");
+            while (input.hasNext()) {
+                String uniName = input.next();
+                int groupNumber = input.nextInt();
+                int sizeOfGroup = input.nextInt();
+                tempGroup = new Group(uniName,groupNumber,sizeOfGroup);
+                if (0 < sizeOfGroup) {
+                    for (int i = 1; i <= sizeOfGroup ; i++) {
+                        String name = input.next();
+                        String surname = input.next();
+                        int age = input.nextInt();
+                        double weight = input.nextDouble();
+                        int height = input.nextInt();
+                        Student tempStudent = new Student(name,surname,age,weight,height,uniName,groupNumber);
+                        tempGroup.addStudentToGroup(tempStudent);
+                    }
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+
+        } catch (AddStudentException e) {
+            e.printStackTrace();
+        }
+        return tempGroup;
     }
 }

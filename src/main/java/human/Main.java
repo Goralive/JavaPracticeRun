@@ -28,6 +28,9 @@ public class Main {
         //seven.addStudentToGroup(jackson);
   //      System.out.println("Created group by user\n" + userGroup.toString());
         seven.groupToFile();
+        Group ptu = Group.createGroupFromFile("group.txt");
+        System.out.println(ptu.toString());
+
 
 
     }
