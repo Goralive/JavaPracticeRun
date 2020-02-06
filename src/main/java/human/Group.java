@@ -184,6 +184,7 @@ public class Group implements ArmyMan {
 
     public static Group createGroupFromFile(String fileLocation) {
         Group tempGroup = null;
+
         try (Scanner input = new Scanner(new File(fileLocation))) {
             input.useDelimiter(",|\n");
             while (input.hasNext()) {

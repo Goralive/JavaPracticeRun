@@ -1,1 +1,1 @@
-PTY,8,2,Collin,Farrel,33,88.0,177,Nikol,Ruby,22,55.4,155,
+PTY,8,2,Collin,Farrel,33,88.0,177,Nikol,Ruby,22,55.4,155

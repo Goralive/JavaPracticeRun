@@ -31,7 +31,5 @@ public class Main {
         Group ptu = Group.createGroupFromFile("group.txt");
         System.out.println(ptu.toString());
 
-
-
     }
 }
