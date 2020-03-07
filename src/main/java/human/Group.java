@@ -4,10 +4,11 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Group implements ArmyMan {
+public class Group implements ArmyMan, Serializable {
     private int groupNumber;
     private String universityName;
     private Student[] groupWithStudents;
+    private static final long serialVersionUID = 1L;
     private Student[] recruits;
 
 
@@ -137,6 +138,8 @@ public class Group implements ArmyMan {
             ex.printStackTrace();
         }
     }
+
+
 
 
     @Override

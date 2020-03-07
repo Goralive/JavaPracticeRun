@@ -1,6 +1,11 @@
 package human;
 
-public class Human implements Comparable<Human> {
+import java.io.Serializable;
+
+public class Human implements Comparable<Human>, Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private String name;
     private String surname;
     private int age;
