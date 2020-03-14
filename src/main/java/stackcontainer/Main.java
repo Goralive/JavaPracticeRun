@@ -10,12 +10,21 @@ public class Main {
         BlackList blackList = new BlackList();
         Stack stack = new Stack(blackList);
         blackList.addToBlackList(Human.class);
-        blackList.addToBlackList(Human.class);
         blackList.addToBlackList(Scanner.class);
         System.out.println(blackList.toString());
-        stack.addToStack(Human.class);
-        stack.addToStack(System.class);
+        stack.addToStack(Double.class);
+        stack.addToStack(String.class);
+        stack.addToStack(Scanner.class);
         System.out.println(stack.toString());
+        System.out.println("------Bob----");
+        try {
+            String objectFromStack = stack.getObjectFromStackAndDelete(String.class).toString();
+            System.out.printf("Object from stack is %s", objectFromStack);
+        } catch (NullPointerException e) {
+            System.out.printf("\n" + e);
+        }
+        System.out.println(stack.toString());
+
 
     }
 
