@@ -9,14 +9,14 @@ public class Main {
 
         BlackList blackList = new BlackList();
         Stack stack = new Stack(blackList);
-        blackList.addToBlackList(Human.class);
-        blackList.addToBlackList(Scanner.class);
+     // blackList.addToBlackList(Human.class);
+     // blackList.addToBlackList(Scanner.class);
         System.out.println(blackList.toString());
         stack.addToStack(Double.class);
         stack.addToStack(String.class);
         stack.addToStack(Scanner.class);
         System.out.println(stack.toString());
-        System.out.println("------Bob----");
+        stack.getObjectFromTop();
         try {
             String objectFromStack = stack.getObjectFromStackAndDelete(String.class).toString();
             System.out.printf("Object from stack is %s", objectFromStack);

@@ -51,7 +51,10 @@ public class Stack {
                     for (Object tempStack : stack) {
                         if (tempStack != null) {
                             for (int i = 0; i < temp.length; i++) {
-                                temp[i] = tempStack;
+                                if(temp[i] == null) {
+                                    temp[i] = tempStack;
+                                    break;
+                                }
                             }
                         }
                     }
@@ -67,6 +70,11 @@ public class Stack {
     }
 
     public Object getObjectFromTop() {
+        if (0 < stack.length) {
+            System.out.printf("Object on the top is %s\n", stack[stack.length - 1]);
+            return stack[stack.length - 1];
+        }
+        System.out.println("No object's in the stack");
         return false;
     }
 
