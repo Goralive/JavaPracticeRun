@@ -1,9 +1,9 @@
 package stackcontainer;
 
-public class Stack {
+public class Stack <T> {
     private BlackList blackList = null;
-    private Object[] stack = new Stack[0];
-
+    Object data;
+    Stack previousElement;
 
     public Stack() {
         super();
@@ -14,84 +14,23 @@ public class Stack {
         this.blackList = blackList;
     }
 
-    public boolean addToStack(Object addObject) {
-        if (blackList == null || !blackList.contains(addObject)) {
-            Object[] tempObjects = new Object[stack.length + 1];
-            for (int i = 0; i < stack.length; i++) {
-                tempObjects[i] = stack[i];
-            }
-            stack = tempObjects;
-            for (int i = 0; i < stack.length; i++) {
-                if (stack[i] == null) {
-                    stack[i] = addObject;
-                    System.out.printf("\nObject %s was successfully added to the stack", addObject.toString());
-                    return true;
-                }
-            }
-        }
-        System.out.printf("\nObject %s wasn't added to the stack", addObject.toString());
-        return false;
-    }
+//  public Stack push(Object obj) {
 
-    public Object getObjectFromStackAndDelete(Object readObject) {
-        Object returnObject = null;
-        if (stack.length == 0) {
-            System.out.println("No objects in the stack");
-            return null;
-        } else {
-            for (int i = 0; i < stack.length; i++) {
-                if (stack[i] == readObject) {
-                    returnObject = stack[i];
-                    stack[i] = null;
-                }
-            }
-            if (returnObject != null) {
-                Object[] temp = new Object[stack.length - 1];
-                if (!(temp.length == 0)) {
-                    for (Object tempStack : stack) {
-                        if (tempStack != null) {
-                            for (int i = 0; i < temp.length; i++) {
-                                if(temp[i] == null) {
-                                    temp[i] = tempStack;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    System.out.println("Stack is empty after getting the object");
-                }
-                stack = temp;
-            } else {
-                System.out.printf("No object %s was found in the stack", readObject);
-            }
-            return returnObject;
-        }
-    }
+//      // проверить this.data != null
+//      // true -> создает новый Stask и в previousElement - засовывает this элемент
+//      // false -> this.data = obj
+//      return this;
+//  }
 
-    public Object getObjectFromTop() {
-        if (0 < stack.length) {
-            System.out.printf("Object on the top is %s\n", stack[stack.length - 1]);
-            return stack[stack.length - 1];
-        }
-        System.out.println("No object's in the stack");
-        return false;
-    }
+//  public Stack pop () {
+//      // условие: удалять объекты других классов, только в вершину стека!!!
+//      // просто должен вернуть previousElement
+//      return this;
+//  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        if (stack.length == 0) {
-            return "\nStack is empty";
-        } else {
-            sb.append("\nStack contains: ");
-            for (Object i : stack) {
-                if (i != null) {
-                    sb.append("\n- " + i.toString());
-                }
-            }
-            return sb.toString();
-        }
-    }
+//  public Object peek () {
+//      // чтение твоей даты this.data
+//      return new Object();
+//  }
+
 }
-
