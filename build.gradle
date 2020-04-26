@@ -16,6 +16,7 @@ dependencies {
     testCompile 'org.assertj:assertj-core:3.11.1'
     compile 'org.seleniumhq.selenium:selenium-java:2.41.0'
     compile 'org.projectlombok:lombok:1.18.10'
+    implementation 'org.junit.jupiter:junit-jupiter:5.5.2'
 }
 
 test {
