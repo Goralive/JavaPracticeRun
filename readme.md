@@ -1,3 +1,2 @@
-## Self-learning Java in practice
-Java core, OOP, draft, passing some courses
-To do: TDD, BDD, Unit testing
+## Self-learning Java in practice. DRAFT
+There is a lot of code made during practice.
