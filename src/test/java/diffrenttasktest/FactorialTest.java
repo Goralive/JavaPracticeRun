@@ -1,32 +1,32 @@
 package diffrenttasktest;
 
 import diffrenttask.Factorial;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class FactorialTest {
 
     private Factorial factorial;
 
-    @Before
+    @BeforeEach
     public void initTest (){
         factorial = new Factorial();
     }
 
-    @After
+    @AfterEach
     public void afteerTest (){
         factorial = null;
     }
 
     @Test
     public void factorialTestPositive(){
-        Assert.assertEquals("Expected diffrenttask",120, factorial.calculation(5));
+        Assertions.assertEquals(120, factorial.calculation(5));
     }
 
     @Test
     public void factorialTestNegative(){
-        Assert.assertEquals(1,factorial.calculation(0));
+        Assertions.assertEquals(1,factorial.calculation(0));
     }
 }

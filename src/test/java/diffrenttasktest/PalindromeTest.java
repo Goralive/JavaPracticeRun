@@ -1,12 +1,12 @@
 package diffrenttasktest;
 
 import diffrenttask.Palindrome;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 public class PalindromeTest {
 
-    @Before
+    @BeforeAll
     public void setUp () {
         Palindrome palindrome = new Palindrome("abba");
     }

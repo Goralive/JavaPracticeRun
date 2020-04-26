@@ -1,9 +1,9 @@
 package gradebookTest;
 
 import gradebook.ExaminationResults;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ public class GradebookTest {
     Map<String, Integer> finalGrads = new HashMap<>();
     ExaminationResults exam = new ExaminationResults();
 
-    @Before
+    @BeforeEach
     public void setUpMap() {
         finalGrads.put("Angie", 97);
         finalGrads.put("Dave", 82);
@@ -31,6 +31,6 @@ public class GradebookTest {
 
     @Test
     public void studentMarksTest() {
-        Assert.assertEquals(finalGrads, exam.marksAfterTwoExams());
+        Assertions.assertEquals(finalGrads, exam.marksAfterTwoExams());
     }
 }

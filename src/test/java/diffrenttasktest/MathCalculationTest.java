@@ -1,7 +1,7 @@
 package diffrenttasktest;
 
 import diffrenttask.MathCalculation;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class MathCalculationTest {
 

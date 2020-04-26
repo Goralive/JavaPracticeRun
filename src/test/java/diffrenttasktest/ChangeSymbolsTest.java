@@ -1,8 +1,8 @@
 package diffrenttasktest;
 
 import diffrenttask.ChangeSymbols;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class ChangeSymbolsTest {
 
@@ -10,6 +10,6 @@ public class ChangeSymbolsTest {
 
     @Test
     public void refactorStringTest() {
-        Assert.assertEquals("Это <тестовый> пример для задачи <на> строки", changeSymbols.replaceSymbols("Это ##тестовый пример## для задачи ##на## строки"));
+        Assertions.assertEquals("Это <тестовый> пример для задачи <на> строки", changeSymbols.replaceSymbols("Это ##тестовый пример## для задачи ##на## строки"));
     }
 }
